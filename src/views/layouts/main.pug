@@ -2,8 +2,10 @@ doctype html
 html
     head
         title #{pageTitle}
+        link(real="stylesheet", href="/static/styles.css")
     body
         include ../partials/header
     main
         block content
+    script(src="/static/main.js")
 

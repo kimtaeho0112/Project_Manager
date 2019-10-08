@@ -9,7 +9,7 @@ const USER_DETAIL = "/:id";
 
 // PROJECT
 const PROJECT = "/project";
-const PROJECT_DETAIL = "/:id/";
+const PROJECT_DETAIL = "/:id";
 
 const routes = {
     home: HOME,

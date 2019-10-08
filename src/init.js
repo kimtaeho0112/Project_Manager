@@ -1,12 +1,16 @@
-import express from "express";
-import morgan from "morgan";
-import helmet from "helmet";
-import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
+import "./db";
 import app from "./app";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+import "./models/Project";
+import "./models/User";
+
+const PORT = process.env.PORT;
 
 const handleListening = () => {
-    console.log("Listening on: http://localhost:4000");
+    console.log(`Listening on: http://localhost:${PORT}`);
 }
 
 app.listen(4000, handleListening);

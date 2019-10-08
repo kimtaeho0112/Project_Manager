@@ -5,11 +5,13 @@ header.header
                 span HOME
         .header__column
             ul
-                li
-                    a(href=routes.join) JOIN
-                li
-                    a(href=routes.login) LOGIN
-                li
-                    a(href=routes.userDetail) PROFILE
-                li
-                    a(href=routes.logout) LOGOUT
+                if !loggedUser
+                    li
+                        a(href=routes.join) JOIN
+                    li
+                        a(href=routes.login) LOGIN
+                else
+                    li
+                        a(href=routes.userDetail) PROFILE
+                    li
+                        a(href=routes.logout) LOGOUT

@@ -1,0 +1,14 @@
+extends layouts/main.pug
+include mixins/projectBlock
+
+block content
+    h3.profile__project PROJECT
+        span current project
+        span finished project
+    h3.profile__roadmap ROADMAP
+        each item in projects
+            +projectBlock({
+                id: item.id,
+                title: item.title,
+                createdAt: item.createdAt
+            })
