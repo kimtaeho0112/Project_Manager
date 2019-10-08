@@ -42,3 +42,8 @@ export const postJoin = async (req, res, next) => {
         }
     }
 }
+
+export const logout = (req, res) => {
+    req.logout();
+    res.redirect(routes.home);
+}
