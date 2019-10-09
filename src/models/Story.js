@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const StorySchema = new mongoose.Schema({
+    fileUrl : String,
     description: String,
     createdAt: {
         type: Date,
@@ -9,8 +10,7 @@ const StorySchema = new mongoose.Schema({
     inProject: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    },
-    fileUrl : String
+    }
 });
 
 const model = mongoose.model("Story", StorySchema);

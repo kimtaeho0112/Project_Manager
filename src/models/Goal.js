@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const GoalSchema = new mongoose.Schema({
+    description: String,
     charge: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    description: String,
     createdAt: {
         type: Date,
         default: Date.now
