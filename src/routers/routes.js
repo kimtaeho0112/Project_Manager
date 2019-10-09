@@ -6,6 +6,7 @@ const LOGOUT = "/logout";
 // User
 const USERS = "/users";
 const USER_DETAIL = "/:id";
+const ME = "/me";
 
 // PROJECT
 const PROJECT = "/project";
@@ -17,9 +18,22 @@ const routes = {
     login: LOGIN,
     logout: LOGOUT,
     users: USERS,
-    userDetail: USER_DETAIL,
+    userDetail: (id) => {
+        if(id) {
+            return `/users/${id}`;
+        } else {
+            return USER_DETAIL;
+        }
+    },
     project: PROJECT,
-    projectDetail: PROJECT_DETAIL
+    projectDetail: (id) => {
+        if(id) {
+            return `/project/${id}`;
+        } else {
+            return PROJECT_DETAIL;
+        }
+    },
+    me: ME
 };
 
 export default routes; 

@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+  }
+body {
+  background-color: #e58139;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70vh;
+  font-family: 'Ubuntu', sans-serif;
+}
+button {
+    border: none;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  button.delete {
+    background-color: $dark-red;
+  }
+  
+  button,
+  input[type="submit"] {
+    cursor: pointer;
+  }

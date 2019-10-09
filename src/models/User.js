@@ -4,14 +4,18 @@ import passportLocalMongoose from "passport-local-mongoose";
 const UserSchema = new mongoose.Schema({
     name: String,
     email: String,
-    currentProject: {
+    currentProject: [
+        {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    },
-    finishedProject: {
+        }
+    ],
+    finishedProject: [
+        {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    }
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'email'});

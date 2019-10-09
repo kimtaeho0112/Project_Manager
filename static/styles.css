@@ -9,6 +9,36 @@
 body {
   background-color: #e58139; }
 
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70vh;
+  font-family: 'Ubuntu', sans-serif; }
+
+button {
+  border: none;
+  background-color: #3498db;
+  color: white; }
+
+button.delete {
+  background-color: #bb2f2a; }
+
+button,
+input[type="submit"] {
+  cursor: pointer; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold; }
+
+body {
+  background-color: #e58139; }
+
 header {
   background-color: #333;
   width: 100%;
@@ -51,7 +81,7 @@ li.header__toggle:hover span.header__toggle-menu-bar {
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s; }
 
-a {
+.header__anchor {
   font-size: 25px;
   text-decoration: none;
   color: #e58139;
@@ -63,3 +93,64 @@ a {
 
 a:hover {
   color: #ddd; }
+
+.form-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .form-container form {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 50px; }
+    .form-container form input:not([type="file"]),
+    .form-container form .fileUpload {
+      display: block;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+         -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+      .form-container form input:not([type="file"]):not(:last-child),
+      .form-container form .fileUpload:not(:last-child) {
+        margin-bottom: 25px; }
+    .form-container form textarea {
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+         -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      margin-bottom: 25px; }
+    .form-container form input[type="submit"] {
+      background-color: #3498db;
+      color: white; }
+  .form-container a {
+    max-width: 320px;
+    width: 100%; }
+  .form-container .fileUpload label {
+    font-weight: 300;
+    margin-right: 10px; }
+
+.projectBlock video {
+  margin-bottom: 10px;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.projectBlock .projectBlock__title {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px; }

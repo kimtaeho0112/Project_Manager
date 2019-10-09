@@ -1,23 +1,19 @@
 header.header
     .header__menu-links
     ul.header__toggle-menu
-        li.header__toggle
-            span.header__toggle-menu-bar
-            span.header__toggle-menu-bar
-            span.header__toggle-menu-bar
         li.header__content
             ul
                 if !loggedUser
                     li
-                        a(href=routes.home) HOME
+                        a.header__anchor(href=routes.home) HOME
                     li
-                        a(href=routes.join) JOIN
+                        a.header__anchor(href=routes.join) JOIN
                     li
-                        a(href=routes.login) LOGIN
+                        a.header__anchor(href=routes.login) LOGIN
                 else
                     li
-                        a(href=routes.home) HOME
+                        a.header__anchor(href=routes.home) HOME
                     li
-                        a(href=routes.userDetail) PROFILE
+                        a.header__anchor(href=routes.me) PROFILE
                     li  
-                        a(href=routes.logout) LOGOUT
+                        a.header__anchor(href=routes.logout) LOGOUT

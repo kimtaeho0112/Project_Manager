@@ -9,19 +9,16 @@ const ProjectSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    descripttion: String,
+    description: String,
     createdAt: {
         type: Date,
         default: Date.now
     },
-    member: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        }
-    ]
+    dueDate: {
+        type:Date
+    }
 });
 
-const model = mongoose.model("Projects", ProjectSchema);
+const model = mongoose.model("Project", ProjectSchema);
 
 export default model;

@@ -1,0 +1,16 @@
+extends layouts/main
+
+block content
+    .form-container
+        .project__container
+        form(action=routes.project, method="post")
+            .project__upload
+            span PROJECT NAME
+                input(type="text", name="title", placeholder="Project Name", required=true)
+            span START DATE
+                input(type="date", name="start", placeholder="Start Date")
+            span DUE DATE
+                input(type="date", name="due", placeholder="Due Date")
+            span DESCRIPTION
+                input(type="text", name="desc", placeholder="Shor Explanation")
+            input(type="submit", value="Create Project")

@@ -3,6 +3,7 @@ import Projects from "../models/Project";
 import User from "../models/User";
 import routes from "../routers/routes";
 import passport from "passport";
+import Project from "../models/Project";
 
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "login" });
@@ -13,9 +14,24 @@ export const postLogin = passport.authenticate("local", {
     successRedirect: routes.home
 })
 
-export const myProfile = async (req, res) => {
-    const projects = await Projects.find({}).sort( { _id: -1 });
-    res.render("myProfile", { pageTitle: "profile", projects: projects });
+export const userDetail = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
+        // console.log(user);
+        res.render("userDetail", {pageTitle: "User Detail", user})
+    } catch (error) {
+        console.log("error");
+        res.redirect(routes.home);
+    }
+}
+
+export const getMe = async (req, res) => {
+    try{
+        const user = await User.findById(req.id).populate("currentProject").populate("finishedProject");
+        res.render("userDetail", { pageTitle: "User Detail", user});
+    }catch(error){
+        res.redirect(routes.home);
+    }
 }
 
 export const getJoin = (req, res) => {
@@ -46,4 +62,40 @@ export const postJoin = async (req, res, next) => {
 export const logout = (req, res) => {
     req.logout();
     res.redirect(routes.home);
+}
+
+export const getCreateProject = (req, res) => {
+    res.render("createProject", {pageTitle: "Project"});
+}
+
+export const postCreateProject = async (req, res) => {
+    const {
+        body: {
+            title,
+            start,
+            due,
+            desc
+        }
+    } = req;
+    try {
+        const newProject = await Project.create({
+            title: title,
+            isFinish: false,
+            description: desc,
+            createdAt: start,
+            dueDate: due
+        });
+        User.findByIdAndUpdate(req.user._id,
+            {
+                $push: { "currentProject": newProject._id }
+            },
+            {
+                safe: true, upser: true, new: true
+            });
+        req.user.currentProject.push(newProject._id);
+        req.user.save();
+        res.redirect(routes.home);
+    } catch(error) {
+        console.log("error");
+    }
 }
