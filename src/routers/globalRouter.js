@@ -24,5 +24,4 @@ globalRouter.get(routes.me, userDetail);
 globalRouter.get(routes.project, getCreateProject);
 globalRouter.post(routes.project, postCreateProject);
 
-
 export default globalRouter;

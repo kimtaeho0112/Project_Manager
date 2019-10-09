@@ -1,9 +1,20 @@
 extends layouts/main.pug
-include mixins/projectBlock
+include mixins/goalBlock
 
 block content
-    | animation till due date
-    | calender
-    | timeline
-    | Total Project JOB, myjob
-    | prof. comment
+    .project__goal
+        each item in goal
+            +goalBlock({
+                id: item.id,
+                description: item.description
+            })
+    .project__myrole
+        each item in mygoal
+            +goalBlock({
+                id: item.id,
+                description: item.description
+            })
+    .project__timeline
+        | TIMELINE
+    .project__calender
+        | CALENDER

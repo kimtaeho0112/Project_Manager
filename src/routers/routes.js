@@ -11,6 +11,8 @@ const ME = "/me";
 // PROJECT
 const PROJECT = "/project";
 const PROJECT_DETAIL = "/:id";
+const EDIT_GOAL = "/:id/editGoal"
+const ADD_STORY = "/:id/addStory"
 
 const routes = {
     home: HOME,
@@ -33,7 +35,21 @@ const routes = {
             return PROJECT_DETAIL;
         }
     },
-    me: ME
+    me: ME,
+    editGoal: (id) => {
+        if(id) {
+            return `/project/${id}/editGoal`;
+        } else {
+            return EDIT_GOAL;
+        }
+    },
+    addStory: (id) => {
+        if(id) {
+            return `/project/${id}/addStory`;
+        } else {
+            return ADD_STORY;
+        }
+    }
 };
 
 export default routes; 
