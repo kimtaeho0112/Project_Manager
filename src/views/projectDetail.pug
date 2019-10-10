@@ -3,17 +3,9 @@ include mixins/goalBlock
 
 block content
     .project__goal
-        each item in goal
-            +goalBlock({
-                id: item.id,
-                description: item.description
-            })
+        | TEAM GOAL, EDIT GOAL BUTTON
     .project__myrole
-        each item in mygoal
-            +goalBlock({
-                id: item.id,
-                description: item.description
-            })
+        | MY ROLE, EDIT MY ROLE BUTTON
     .project__timeline 
         | TIMELINE
     .project__calender

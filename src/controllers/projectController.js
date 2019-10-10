@@ -12,7 +12,8 @@ export const projectDetail = (req, res) => {
         params: { id }
       } = req;
       // console.log(id);
-      const goal = Goal.findOne( { inProject: id });
-      const mygoal = goal.findOne( { charge: req.user._id });
+      const goal = Goal.findOne( { inProject: { "$in": id} });
+      console.log(goal.id);
+      const mygoal = goal.findOne( { charge: { "$in": req.user._id} });
     res.render("projectDetail", { pageTitle: "Project Deatil", goal, mygoal });
 }

@@ -2,19 +2,18 @@ import mongoose from "mongoose";
 
 const GoalSchema = new mongoose.Schema({
     description: String,
-    charge: {
+    charge: [
+        {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        default: ""
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    inProject: {
+        ref: "User"
+        }
+    ],
+    inProject: [
+        {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
-    }
+        }
+    ]
 });
 
 const model = mongoose.model("Goal", GoalSchema);

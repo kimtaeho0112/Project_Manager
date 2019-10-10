@@ -87,9 +87,7 @@ export const postCreateProject = async (req, res) => {
             createdAt: start,
             dueDate: due
         });
-        console.log("error before creating newGoal");
-        const newGoal = await Goal.create();
-        console.log("newGoal");
+
         User.findByIdAndUpdate(req.user._id,
             {
                 $push: { "currentProject": newProject._id }
