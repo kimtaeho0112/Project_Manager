@@ -4,6 +4,7 @@ import User from "../models/User";
 import routes from "../routers/routes";
 import passport from "passport";
 import Project from "../models/Project";
+import Goal from "../models/Goal";
 
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "login" });
@@ -74,7 +75,8 @@ export const postCreateProject = async (req, res) => {
             title,
             start,
             due,
-            desc
+            desc,
+            goal
         }
     } = req;
     try {
@@ -85,6 +87,9 @@ export const postCreateProject = async (req, res) => {
             createdAt: start,
             dueDate: due
         });
+        console.log("error before creating newGoal");
+        const newGoal = await Goal.create();
+        console.log("newGoal");
         User.findByIdAndUpdate(req.user._id,
             {
                 $push: { "currentProject": newProject._id }

@@ -1,11 +1,12 @@
+import "@babel/polyfill";
+import dotenv from "dotenv";
 import "./db";
 import app from "./app";
-import dotenv from "dotenv";
 
 dotenv.config();
 
-import "./models/Project";
 import "./models/Goal";
+import "./models/Project";
 import "./models/Story";
 import "./models/User";
 

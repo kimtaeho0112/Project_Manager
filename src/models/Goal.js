@@ -4,7 +4,8 @@ const GoalSchema = new mongoose.Schema({
     description: String,
     charge: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        default: ""
     },
     createdAt: {
         type: Date,
