@@ -16,7 +16,13 @@ const ProjectSchema = new mongoose.Schema({
     },
     dueDate: {
         type:Date
-    }
+    },
+    goal: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Goal"
+        }
+    ]
 });
 
 const model = mongoose.model("Project", ProjectSchema);

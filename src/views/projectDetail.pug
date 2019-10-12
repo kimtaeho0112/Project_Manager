@@ -1,9 +1,12 @@
 extends layouts/main.pug
-include mixins/goalBlock
+include mixins/projectGoalBlock
 
 block content
-    .project__goal
-        | TEAM GOAL, EDIT GOAL BUTTON
+    span.project__goal PROJECT GOAL
+        each item in pro.goal
+            +projectGoalBlock({
+                description: item.description
+            })
     .project__myrole
         | MY ROLE, EDIT MY ROLE BUTTON
     .project__timeline 

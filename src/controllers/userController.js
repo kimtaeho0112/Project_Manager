@@ -88,15 +88,24 @@ export const postCreateProject = async (req, res) => {
             dueDate: due
         });
 
+        const newGoal = await Goal.create({
+            description: goal
+        });
+
         User.findByIdAndUpdate(req.user._id,
             {
                 $push: { "currentProject": newProject._id }
             },
             {
-                safe: true, upser: true, new: true
+                safe: true, upsert: true, new: true
             });
+        // console.log(newProject._id);
+        // console.log(newGoal._id);
+
         req.user.currentProject.push(newProject._id);
         req.user.save();
+        newProject.goal.push(newGoal._id);
+        newProject.save();
         res.redirect(routes.home);
     } catch(error) {
         console.log("error");
