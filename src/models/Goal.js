@@ -7,6 +7,12 @@ const GoalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
         }
+    ],
+    chargername: [
+        {
+            type: mongoose.Schema.Types.String,
+            ref: "User"
+        }
     ]
 });
 

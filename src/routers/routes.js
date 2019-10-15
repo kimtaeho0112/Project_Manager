@@ -12,7 +12,11 @@ const ME = "/me";
 const PROJECT = "/project";
 const PROJECT_DETAIL = "/:id";
 const EDIT_GOAL = "/:id/editGoal"
-const ADD_STORY = "/:id/addStory"
+
+// GOAL
+const GOAL = "/goal";
+const ADD_MYGOAL = "/:id/addMyGoal"
+
 
 const routes = {
     home: HOME,
@@ -43,11 +47,12 @@ const routes = {
             return EDIT_GOAL;
         }
     },
-    addStory: (id) => {
+    goal: GOAL,
+    addMyGoal: (id) => {
         if(id) {
-            return `/project/${id}/addStory`;
+            return `/goal/${id}/addMyGoal`;
         } else {
-            return ADD_STORY;
+            return ADD_MYGOAL;
         }
     }
 };

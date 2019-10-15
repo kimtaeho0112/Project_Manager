@@ -3,9 +3,13 @@ include mixins/projectGoalBlock
 
 block content
     span.project__goal PROJECT GOAL
+        button
+            a(href=routes.editGoal(pro.id)) EDIT GOAL
         each item in pro.goal
             +projectGoalBlock({
-                description: item.description
+                description: item.description,
+                charge: item.charge,
+                chargername: item.chargername
             })
     .project__myrole
         | MY ROLE, EDIT MY ROLE BUTTON

@@ -1,4 +1,6 @@
 mixin projectGoalBlock(projectGoal = {})
     .projectGoalBlock
         h4.projectGoalBlock__title=projectGoal.description
-            button.project__addMyRole(name="addMyRole", value="Add My Role")
+        if !projectGoal.charge
+            h5.projectGoal__charge NOT CHARGE
+        h4.projectGoalBlock__charge=projectGoal.chargername[0]

@@ -1,0 +1,12 @@
+extends layouts/main.pug
+include mixins/editGoalBlock
+
+block content
+    span.project__goal CURRENT GOAL
+        each item in pro.goal
+            +editGoalBlock({
+                id: item.id,
+                description: item.description,
+                charge: item.charge,
+                chargername: item.chargername
+            })
