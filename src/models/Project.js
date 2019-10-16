@@ -22,7 +22,11 @@ const ProjectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Goal"
         }
-    ]
+    ],
+    requiredPeople:{
+        type: Number,
+        default: 1
+    }
 });
 
 const model = mongoose.model("Project", ProjectSchema);
