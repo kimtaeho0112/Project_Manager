@@ -1,0 +1,10 @@
+extends layouts/main.pug
+
+block content
+    .form-container
+        .project__container
+        form(action=routes.addGoal(pro._id), method="post")
+            .project__upload
+            span GOAL NAME
+                input(type="text", name="goalName", placeholder="Goal Name", required=true)
+            input(type="submit", value="Add New Goal")

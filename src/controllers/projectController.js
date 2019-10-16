@@ -27,7 +27,7 @@ export const editGoal = async (req, res) => {
       // console.log(pro.goal[0]._id);
       const goal = await Goal.findById(pro.goal[0]._id);
       // console.log(pro);
-    res.render("editGoal", {pageTitle: "edit Goal", pro });
+    res.render("editGoal", {pageTitle: "edit Goal", pro, goal });
 }
 
 export const addMyGoal = async (req, res) => {
@@ -54,11 +54,68 @@ export const addMyGoal = async (req, res) => {
         {
             safe: true, upsert: true, new: true
         });
-    goal.charge.push(req.user_.id);
-    goal.chargername.push(user.name);
+    // console.log("No error at chargername updating");
+    await Goal.findByIdAndUpdate(id,
+        {
+            $set: { "isCharged": true }
+        },
+        {
+            safe: true, upsert: true, new: true
+        });
+    // console.log("No error at isCharged updating");
+    goal.update(
+        { $push : {charge: req.user._id}}
+    );
+    // console.log("No error at push using update")
+    goal.update(
+        { $push: {chargername: user.name}}
+    );
+    // goal.isCharged = true;
     goal.save();
+    console.log("No error at save 1");
     goal.save();
+    console.log("No error at save 2");
+    goal.save();
+    console.log("No error at save 3");
     res.redirect(routes.home);
+    } catch(error){
+        console.log("error");
+    }
+}
+
+export const getAddGoal = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    const pro = await Project.findById(id);
+    // console.log(pro._id);
+    res.render("addGoal", { pageTitle: "Add Goal", pro });
+}
+
+export const postAddGoal = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    const {
+        body: {
+            goalName
+        }
+    } = req;
+
+    try {
+        const newGoal = await Goal.create({
+            description: goalName
+        });
+        const pro = await Project.findById(id);
+        await Project.findByIdAndUpdate(id,
+            {
+                $push: { "goal": newGoal._id }
+            },
+            {
+                safe: true, upsert: true, new: true
+            });
+            pro.save();
+            res.redirect(routes.projectDetail(id));
     } catch(error){
         console.log("error");
     }

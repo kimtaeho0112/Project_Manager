@@ -1,6 +1,7 @@
 mixin projectGoalBlock(projectGoal = {})
     .projectGoalBlock
         h4.projectGoalBlock__title=projectGoal.description
-        if !projectGoal.charge
+        if !projectGoal.isCharged
             h5.projectGoal__charge NOT CHARGE
-        h4.projectGoalBlock__charge=projectGoal.chargername[0]
+        else
+            h4.projectGoalBlock__charge=projectGoal.chargername[0]

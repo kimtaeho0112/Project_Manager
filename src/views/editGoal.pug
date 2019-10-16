@@ -3,10 +3,13 @@ include mixins/editGoalBlock
 
 block content
     span.project__goal CURRENT GOAL
+        a(href=routes.addGoal(pro.id))
+            button CREATE GOAL
         each item in pro.goal
             +editGoalBlock({
                 id: item.id,
                 description: item.description,
+                isCharged: item.isCharged,
                 charge: item.charge,
                 chargername: item.chargername
             }) 

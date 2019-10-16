@@ -3560,7 +3560,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("jQuery(document).ready(function ($) {\n  $(\"li.content\").hide();\n  $(\"ul.toggle-menu\").delegate(\"li.toggle\", \"click\", function () {\n    $(this).next().toggle(\"fast\").siblings(\".content\").hide(\"fast\");\n  });\n});\n\n//# sourceURL=webpack:///./src/assets/js/header.js?");
+eval("document.querySelector(\".hamburguer\").addEventListener(\"click\", function () {\n  document.querySelector(\".full-menu\").classList.toggle(\"active\");\n  document.querySelector(\".hamburguer\").classList.toggle(\"close-hamburguer\");\n});\n\n//# sourceURL=webpack:///./src/assets/js/header.js?");
 
 /***/ }),
 

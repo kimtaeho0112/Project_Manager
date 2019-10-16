@@ -1,6 +1,4 @@
-jQuery(document).ready(function($){
-    $("li.content").hide();
-    $("ul.toggle-menu").delegate("li.toggle", "click", function() { 
-    $(this).next().toggle("fast").siblings(".content").hide("fast");
-      });
-  });
+document.querySelector(".hamburguer").addEventListener("click", function(){
+	document.querySelector(".full-menu").classList.toggle("active");
+	document.querySelector(".hamburguer").classList.toggle("close-hamburguer");
+});
