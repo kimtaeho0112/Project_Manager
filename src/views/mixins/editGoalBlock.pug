@@ -4,6 +4,7 @@ mixin editGoalBlock(editGoal = {})
         if !editGoal.charge
             h5.projectGoal__charge NOT CHARGE
         h4.projectGoalBlock__charge=editGoal.chargername[0]
-        button
-            a(href=routes.addMyGoal(editGoal.id)) 
-                button ADD TO MY GOAL
+        if !editGoal.charge
+            button
+                a(href=routes.addMyGoal(editGoal.id)) 
+                    button ADD TO MY GOAL

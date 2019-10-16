@@ -6,9 +6,6 @@
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; }
 
-body {
-  background-color: #e58139; }
-
 main {
   width: 100%;
   max-width: 1200px;
@@ -16,15 +13,52 @@ main {
   min-height: 70vh;
   font-family: 'Ubuntu', sans-serif; }
 
+/*
 button {
-  border: none;
-  background-color: #3498db;
-  color: white; }
+    border: none;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  button.delete {
+    background-color: $dark-red;
+  }
+  
+  button,
+  input[type="submit"] {
+    cursor: pointer;
+  }
+  */
+button, .header__button {
+  display: inline-block;
+  font: normal normal 300 1.3em 'Open Sans';
+  text-decoration: none;
+  color: #1cbe83;
+  brackground-color: transparent;
+  border: 1px solid #1cbe83;
+  -webkit-border-radius: 100px;
+     -moz-border-radius: 100px;
+          border-radius: 100px;
+  padding: .3em 1.2em;
+  margin: 5px;
+  -webkit-background-size: 200% 100%;
+     -moz-background-size: 200% 100%;
+          background-size: 200% 100%;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #1cbe83));
+  background-image: -webkit-linear-gradient(left, transparent 50%, #1cbe83 50%);
+  background-image: -moz-linear-gradient(left, transparent 50%, #1cbe83 50%);
+  background-image: -o-linear-gradient(left, transparent 50%, #1cbe83 50%);
+  background-image: linear-gradient(to right, transparent 50%, #1cbe83 50%);
+  -webkit-transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+  -o-transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+  -moz-transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+  transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
 
-button.delete {
-  background-color: #bb2f2a; }
+button, .header__button:hover {
+  color: white;
+  background-color: #1cbe83;
+  background-position: -100% 100%; }
 
-button,
 input[type="submit"] {
   cursor: pointer; }
 
@@ -35,9 +69,6 @@ html, body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; }
-
-body {
-  background-color: #e58139; }
 
 header {
   background-color: #333;
@@ -71,7 +102,6 @@ li.header__toggle:hover span.header__toggle-menu-bar {
   display: block;
   width: 25px;
   height: 4px;
-  background-color: #e58139;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
