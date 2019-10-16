@@ -2,6 +2,7 @@ const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
+const MARKET = "/market"
 
 // User
 const USERS = "/users";
@@ -18,7 +19,6 @@ const ADD_GOAL = "/:id/addGoal";
 const GOAL = "/goal";
 const ADD_MYGOAL = "/:id/addMyGoal";
 
-
 const routes = {
     home: HOME,
     join: JOIN,
@@ -32,6 +32,7 @@ const routes = {
             return USER_DETAIL;
         }
     },
+    market: MARKET,
     project: PROJECT,
     projectDetail: (id) => {
         if(id) {

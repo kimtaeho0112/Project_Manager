@@ -10,7 +10,8 @@ import {
     logout, 
     userDetail,
     getCreateProject, 
-    postCreateProject} from "../controllers/userController";
+    postCreateProject,
+    market} from "../controllers/userController";
 
 const globalRouter = express.Router();
 
@@ -23,5 +24,6 @@ globalRouter.get(routes.logout, logout);
 globalRouter.get(routes.me, userDetail);
 globalRouter.get(routes.project, getCreateProject);
 globalRouter.post(routes.project, postCreateProject);
+globalRouter.get(routes.market, market);
 
 export default globalRouter;

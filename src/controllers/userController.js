@@ -111,3 +111,7 @@ export const postCreateProject = async (req, res) => {
         console.log("error");
     }
 }
+
+export const market = (req, res) => {
+    res.render("market", { pageTitle: "Market" });
+}

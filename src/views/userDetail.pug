@@ -4,7 +4,7 @@ include mixins/projectBlock
 block content
     .userDetail
         if user.id === loggedUser.id
-            span.userDetail__listtitle 진행중인 프로젝트
+            .userDetail__listtitle 진행중인 프로젝트
                 .userDetail__displayProject
                     each item in user.currentProject
                         +projectBlock({
@@ -12,7 +12,8 @@ block content
                             title: item.title,
                             createdAt: item.createdAt
                         })
-            span.userDetail__listtitle 종료된 프로젝트
+                        
+            .userDetail__listtitle 종료된 프로젝트
                 .userDetail__displayProject
                     each item in user.finishedProject
                         +projectBlock({
