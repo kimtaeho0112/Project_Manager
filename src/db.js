@@ -3,10 +3,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { 
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
+mongoose.connect(process.env.MONGO_URL, (err,db) => { 
+    // useNewUrlParser: true,
+    // useFindAndModify: false,
+    // useUnifiedTopology: true
+    if( err ){
+        console.log('Unable to connect to the server. Please start the server. Error:', err);
+    } else {
+        console.log('Connected to Server successfully!');
+    }
 });
 
 const db = mongoose.connection;
