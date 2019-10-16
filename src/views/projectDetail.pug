@@ -5,6 +5,7 @@ block content
     span.project__goal PROJECT GOAL
         button
             a(href=routes.editGoal(pro.id)) EDIT GOAL
+    .projectDetail__list    
         each item in pro.goal
             +projectGoalBlock({
                 description: item.description,

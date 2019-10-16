@@ -1,0 +1,19 @@
+.projectGoalBlock {
+    .projectGoalBlock__container{
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        height: 150px;
+        width: 300px;
+        margin: 10px;
+        background-color: bisque;
+        list-style: none;
+    
+    .projectGoalBlock__title {
+        font-size: 20px;
+    }
+    .projectGoalBlock__charge {
+        font-size: 20px;
+    }
+    }
+}

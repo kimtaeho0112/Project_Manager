@@ -2,18 +2,21 @@ extends layouts/main.pug
 include mixins/projectBlock
 
 block content
-    if user.id === loggedUser.id
-        span current project
-            each item in user.currentProject
-                +projectBlock({
-                    id: item.id,
-                    title: item.title,
-                    createdAt: item.createdAt
-                })
-        span finished project
-            each item in user.finishedProject
-                +projectBlock({
-                    id: item.id,
-                    title: item.title,
-                    createdAt: item.createdAt
-                }) 
+    .userDetail
+        if user.id === loggedUser.id
+            span.userDetail__listtitle 진행중인 프로젝트
+                .userDetail__displayProject
+                    each item in user.currentProject
+                        +projectBlock({
+                            id: item.id,
+                            title: item.title,
+                            createdAt: item.createdAt
+                        })
+            span.userDetail__listtitle 종료된 프로젝트
+                .userDetail__displayProject
+                    each item in user.finishedProject
+                        +projectBlock({
+                            id: item.id,
+                            title: item.title,
+                            createdAt: item.createdAt
+                        }) 

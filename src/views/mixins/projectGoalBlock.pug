@@ -1,7 +1,12 @@
 mixin projectGoalBlock(projectGoal = {})
     .projectGoalBlock
-        h4.projectGoalBlock__title=projectGoal.description
-        if !projectGoal.isCharged
-            h5.projectGoal__charge NOT CHARGE
-        else
-            h4.projectGoalBlock__charge=projectGoal.chargername[0]
+        ul.projectGoalBlock__container
+            li
+                span.projectGoalBlock__title 목표내용
+                    span.projectGoalBlock__title=projectGoal.description
+            li
+                if !projectGoal.isCharged
+                    span.projectGoalBlock__charge NOT CHARGE
+                else
+                    span.projectGoalBlock__charge 책임자
+                        span.projectGoalBlock__charge=projectGoal.chargername[0]
