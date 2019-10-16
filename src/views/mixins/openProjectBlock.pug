@@ -1,0 +1,6 @@
+mixin projectBlock(project = {})
+    .projectBlock 
+        a(href=routes.projectDetail(project.id)) 
+            .projectBlock__title
+                h4=project.title
+                h4=project.description

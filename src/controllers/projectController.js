@@ -30,6 +30,19 @@ export const editGoal = async (req, res) => {
     res.render("editGoal", {pageTitle: "edit Goal", pro, goal });
 }
 
+/*
+*   @param      req.params[page] -> page 개수 만큼 project return,
+                -1 또는 0 일 경우 모두 return
+*/
+export const getUnfinishedProjects = async(req, res) => {
+    const pro = await Project.find()
+                 .where('isFinished').equals(false)
+                 .sort('dueDate')
+                 .limit(req.param('pages'))
+                 .select('title description')
+    res.render("projectsDetail", { pageTitle: "markets", pro})
+}
+
 export const addMyGoal = async (req, res) => {
     const {
         params : { id }

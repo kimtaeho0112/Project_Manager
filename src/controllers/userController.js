@@ -18,7 +18,7 @@ export const postLogin = passport.authenticate("local", {
 export const userDetail = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
-        // console.log(user);
+        console.log(user);
         res.render("userDetail", {pageTitle: "User Detail", user})
     } catch (error) {
         console.log("error");
@@ -113,5 +113,6 @@ export const postCreateProject = async (req, res) => {
 }
 
 export const market = (req, res) => {
+    console.log(req.user)
     res.render("market", { pageTitle: "Market" });
 }
