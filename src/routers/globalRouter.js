@@ -11,7 +11,8 @@ import {
     userDetail,
     getCreateProject, 
     postCreateProject,
-    market} from "../controllers/userController";
+    market
+} from "../controllers/userController";
 
 const globalRouter = express.Router();
 

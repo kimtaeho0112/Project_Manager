@@ -18,7 +18,7 @@ export const postLogin = passport.authenticate("local", {
 export const userDetail = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
-        console.log(user);
+        //console.log(user);
         res.render("userDetail", {pageTitle: "User Detail", user})
     } catch (error) {
         console.log("error");
@@ -76,7 +76,8 @@ export const postCreateProject = async (req, res) => {
             start,
             due,
             desc,
-            goal
+            goal,
+            reqPeople
         }
     } = req;
     try {
@@ -85,7 +86,8 @@ export const postCreateProject = async (req, res) => {
             isFinish: false,
             description: desc,
             createdAt: start,
-            dueDate: due
+            dueDate: due,
+            requiredPeople : reqPeople
         });
 
         const newGoal = await Goal.create({
@@ -111,8 +113,32 @@ export const postCreateProject = async (req, res) => {
         console.log("error");
     }
 }
+/*
+*   @param      req.params[page] -> page 개수 만큼 project return,
+                -1 또는 0 일 경우 모두 return
+*/
+export const getUnfinishedProjects = async(req, res) => {
+    const pro = await Project.find()
+                 .where('isFinished').equals(false)
+                 .sort('dueDate')
+                 .limit(req.param('pages'))
+                 .select('title description')
+    res.render("projectsDetail", { pageTitle: "markets", pro})
+}
 
-export const market = (req, res) => {
-    console.log(req.user)
-    res.render("market", { pageTitle: "Market" });
+
+
+export const market = async (req, res) => {
+    var projects = null
+    try {
+        projects = Project.find()
+                          .where('isFinished').equals(false)
+                          .sort('dueDate')
+                          .select('title description')
+        console.log(projects)
+        res.render("market", {pageTitle: "Market", projects})
+    } catch (error) {
+        console.log(error)
+    }
+    res.render("market", { pageTitle: "Market",  projects });
 }

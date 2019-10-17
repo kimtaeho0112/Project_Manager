@@ -1,4 +1,23 @@
 extends layouts/main.pug
+include mixins/openProjectBlock
+
 
 block content
-    | 유저들끼리 방 만들어서 인원 모집
+    .userDetail
+            .userDetail__listtitle 모집중인 프로젝트
+                .userDetail__displayProject
+                    each item in projects
+                        +projectBlock({
+                            id: item.id,
+                            title: item.title,
+                            createdAt: item.createdAt
+                        })
+                        
+            .userDetail__listtitle 종료된 프로젝트
+                .userDetail__displayProject
+                    each item in projects
+                        +projectBlock({
+                            id: item.id,
+                            title: item.title,
+                            createdAt: item.createdAt
+                        }) 
