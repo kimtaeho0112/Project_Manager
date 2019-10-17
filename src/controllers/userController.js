@@ -129,21 +129,23 @@ export const getUnfinishedProjects = async(req, res) => {
 
 
 export const market = async (req, res) => {
-<<<<<<< HEAD
-    var projects = null
-    try {
-        projects = Project.find()
-                          .where('isFinished').equals(false)
-                          .sort('dueDate')
-                          .select('title description')
-        console.log(projects)
-        res.render("market", {pageTitle: "Market", projects})
-    } catch (error) {
-        console.log(error)
-    }
-    res.render("market", { pageTitle: "Market",  projects });
-=======
-    const allPro = await Project.find({});
+// <<<<<<< HEAD
+//     var projects = null
+//     try {
+//         projects = Project.find()
+//                           .where('isFinished').equals(false)
+//                           .sort('dueDate')
+//                           .select('title description')
+//         console.log(projects)
+//         res.render("market", {pageTitle: "Market", projects})
+//     } catch (error) {
+//         console.log(error)
+//     }
+//     res.render("market", { pageTitle: "Market",  projects });
+// =======
+    const allPro = await Project.find()
+                                .where('isFinish').equals(false)
+                                .select('_id isFinish goal requirePeople title createdAt dueDate onMarket')
+    console.log(allPro)
     res.render("market", { pageTitle: "Market", allPro });
->>>>>>> 705fbb8bfa801aa53141701363ee42fa881d5ba2
 }

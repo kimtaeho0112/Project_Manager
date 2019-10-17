@@ -12,6 +12,8 @@ const ME = "/me";
 // PROJECT
 const PROJECT = "/project";
 const PROJECT_DETAIL = "/:id";
+const MARKET_DETAIL = "/:id";
+const REQ_PROJ = "/:id/requestParticipate"
 const EDIT_GOAL = "/:id/editGoal";
 const ADD_GOAL = "/:id/addGoal";
 
@@ -41,6 +43,13 @@ const routes = {
             return PROJECT_DETAIL;
         }
     },
+    marketDetail: (id)=>{
+        if(id){
+            return `/market/${id}`;
+        }else{
+            return MARKET_DETAIL;
+        }
+    },
     me: ME,
     editGoal: (id) => {
         if(id) {
@@ -54,6 +63,13 @@ const routes = {
             return `/project/${id}/addGoal`;
         } else {
             return ADD_GOAL;
+        }
+    },
+    reqParticipateProject: (id)=>{
+        if(id){
+            return `/market/${id}/requestParticipate`;
+        }else{
+            return REQ_PROJ
         }
     },
     goal: GOAL,

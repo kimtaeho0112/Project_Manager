@@ -1,0 +1,23 @@
+extends layouts/main.pug
+include mixins/projectGoalBlock
+
+block content
+    span.project__goal 프로젝트 참여하기
+        //- button
+        //-     a(href=routes.editGoal(pro.id)) EDIT GOAL
+    .projectDetail__list    
+        each item in pro.goal
+            +projectGoalBlock({
+                description: item.description,
+                isCharged: item.isCharged,
+                charge: item.charge,
+                chargername: item.chargername
+            })
+    .project__myrole
+        | 이 프로젝트에 참여하기
+        button
+            a(href=routes.reqParticipateProject(pro.id)) PARTICIPATE
+    .project__timeline 
+        | TIMELINE
+    .project__calender
+        | CALENDER
