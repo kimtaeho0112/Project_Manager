@@ -23,6 +23,10 @@ const ProjectSchema = new mongoose.Schema({
         ref: "Goal"
         }
     ],
+    onMarket:{
+        type: Boolean,
+        default: true
+    },
     requiredPeople:{
         type: Number,
         default: 1

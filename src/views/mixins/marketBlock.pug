@@ -1,0 +1,6 @@
+mixin marketBlock(market = {})
+    .projectBlock 
+        a(href=routes.projectDetail(market.id)) 
+            .projectBlock__title
+                h4=market.title
+                h4=market.requiredPeople

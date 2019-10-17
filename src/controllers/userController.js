@@ -112,7 +112,7 @@ export const postCreateProject = async (req, res) => {
     }
 }
 
-export const market = (req, res) => {
-    console.log(req.user)
-    res.render("market", { pageTitle: "Market" });
+export const market = async (req, res) => {
+    const allPro = await Project.find({});
+    res.render("market", { pageTitle: "Market", allPro });
 }
