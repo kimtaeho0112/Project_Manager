@@ -129,6 +129,7 @@ export const getUnfinishedProjects = async(req, res) => {
 
 
 export const market = async (req, res) => {
+<<<<<<< HEAD
     var projects = null
     try {
         projects = Project.find()
@@ -141,4 +142,8 @@ export const market = async (req, res) => {
         console.log(error)
     }
     res.render("market", { pageTitle: "Market",  projects });
+=======
+    const allPro = await Project.find({});
+    res.render("market", { pageTitle: "Market", allPro });
+>>>>>>> 705fbb8bfa801aa53141701363ee42fa881d5ba2
 }

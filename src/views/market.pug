@@ -1,23 +1,14 @@
 extends layouts/main.pug
-include mixins/openProjectBlock
-
+include mixins/marketBlock
 
 block content
-    .userDetail
-            .userDetail__listtitle 모집중인 프로젝트
-                .userDetail__displayProject
-                    each item in projects
-                        +projectBlock({
-                            id: item.id,
-                            title: item.title,
-                            createdAt: item.createdAt
-                        })
-                        
-            .userDetail__listtitle 종료된 프로젝트
-                .userDetail__displayProject
-                    each item in projects
-                        +projectBlock({
-                            id: item.id,
-                            title: item.title,
-                            createdAt: item.createdAt
-                        }) 
+    .market__list
+        each item in allPro
+            if item.onMarket
+                +marketBlock({
+                    id: item.id,
+                    title: item.title,
+                    createdAt: item.createdAt,
+                    onMarket: item.onMarket,
+                    requiredPeople: item.requiredPeople
+                })
