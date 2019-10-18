@@ -18,22 +18,23 @@ export const marketDetail = async (req, res) => {
 export const reqParticipateProject = async (req,res) =>{
     var message = null;
     const {
-        params: {id}
+        params: {id} 
     } = req;
     const pro = await Project.findById(id);
     if( pro.requiredPeople >= 1 && req.user.currentProject[id] == null ) {
-        message = Message.create({
+        message = await Message.create({
             requestedId: req.user._id,
             projectId: id,
             isAccepted: false
         });
-        res.render('reqParticipateProject', {pageTitle:"Success", message})
+        // console.log(message.requestedId);
+        res.render('reqParticipateProject', {pageTitle:"Success", message});
     }
     else if(req.user.currentProject[id] != null) {
-        res.render('reqParticipateProject', {pageTitle: "your project", message})
+        res.render('reqParticipateProject', {pageTitle: "your project", message});
     }
     else if(Message.find().where('requestId').equals(req.user._id) != null){
-        res.render('reqParticipateProject', {pageTitle:"Already participated!", message})
+        res.render('reqParticipateProject', {pageTitle:"Already participated!", message});
     }
     else {
         res.render("reqParticipateProject", { pageTitle: "Unexpected Error", message });

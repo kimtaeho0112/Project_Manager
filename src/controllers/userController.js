@@ -40,7 +40,6 @@ export const userDetail = async (req, res) => {
                 }
                 userMessages.push(newMessage)
             }
-
         }
         user.messageArray = userMessages
         res.render("userDetail", {pageTitle: "User Detail", user})
@@ -172,4 +171,8 @@ export const market = async (req, res) => {
                                 .select('_id isFinish goal requirePeople title createdAt dueDate onMarket')
     console.log(allPro)
     res.render("market", { pageTitle: "Market", allPro });
+}
+
+export const profileAnother = (req, res) => {
+    res.render("profileAnother", {pageTitle: "Another Person Profile" });
 }

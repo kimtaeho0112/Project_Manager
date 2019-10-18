@@ -8,6 +8,7 @@ const MARKET = "/market"
 const USERS = "/users";
 const USER_DETAIL = "/:id";
 const ME = "/me";
+const PROFILE_ANOTHER = "/:id" 
 
 // PROJECT
 const PROJECT = "/project";
@@ -32,6 +33,13 @@ const routes = {
             return `/users/${id}`;
         } else {
             return USER_DETAIL;
+        }
+    },
+    profileAnother: (id) => {
+        if(id) {
+            return `/users/${id}`;
+        } else {
+            return PROFILE_ANOTHER;
         }
     },
     market: MARKET,

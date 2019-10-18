@@ -183,10 +183,14 @@ a:hover {
 .projectBlock .projectBlock__title {
   font-size: 18px;
   font-weight: 300;
+  text-align: center;
   margin-bottom: 50px;
   width: 300px;
-  height: 150px;
-  border: 0.5rem outset pink; }
+  height: 120px;
+  border: 0.1rem outset black;
+  -webkit-box-shadow: 10px 10px 5px #aaaaaa;
+     -moz-box-shadow: 10px 10px 5px #aaaaaa;
+          box-shadow: 10px 10px 5px #aaaaaa; }
 
 .projectDetail__list {
   display: grid; }

@@ -11,7 +11,8 @@ import {
     userDetail,
     getCreateProject, 
     postCreateProject,
-    market
+    market,
+    profileAnother
 } from "../controllers/userController";
 
 const globalRouter = express.Router();
@@ -26,5 +27,6 @@ globalRouter.get(routes.me, userDetail);
 globalRouter.get(routes.project, getCreateProject);
 globalRouter.post(routes.project, postCreateProject);
 globalRouter.get(routes.market, market);
+globalRouter.get(routes.profileAnother(), profileAnother);
 
 export default globalRouter;

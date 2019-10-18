@@ -2,7 +2,7 @@ extends layouts/main.pug
 include mixins/projectBlock
 include mixins/messageBlock
 
-block content
+block content  
     .userDetail
         if user.id === loggedUser.id
             .userDetail__listtitle 받은 요청 내역
@@ -11,7 +11,8 @@ block content
                         if item != null
                             +messageBlock({
                                 id: item.projectId,
-                                title: item.title
+                                title: item.title,
+                                requestedId: item.requestedId
                             })
 
             .userDetail__listtitle 진행중인 프로젝트 
