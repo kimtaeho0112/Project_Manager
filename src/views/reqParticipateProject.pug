@@ -1,0 +1,13 @@
+
+extends layouts/main.pug
+include mixins/projectGoalBlock
+
+block content
+    span.project__goal 프로젝트 참여
+        //- button
+        //-     a(href=routes.editGoal(pro.id)) EDIT GOAL
+    .projectDetail__list    
+        if message == null 
+            | 이 프로젝트는 참여할 수 없습니다.
+        else
+            | 프로젝트 참여 완료!

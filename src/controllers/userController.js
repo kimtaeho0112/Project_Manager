@@ -5,6 +5,7 @@ import routes from "../routers/routes";
 import passport from "passport";
 import Project from "../models/Project";
 import Goal from "../models/Goal";
+import Message from "../models/Message"
 
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "login" });
@@ -18,10 +19,33 @@ export const postLogin = passport.authenticate("local", {
 export const userDetail = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
-        //console.log(user);
+        var userMessages = [];
+
+        for( const x of user.currentProject){
+           var message =  await Message.find({})
+                                         .where('projectId').equals(x._id)
+                                         .select('_id requestedId projectId isAccepted');
+                                         
+            if( message[0] == null ) continue;
+            else{
+                var project = await Projects.findById(message[0].projectId);
+                var newMessage = {
+                    ['isAccepted'] : message[0].isAccepted,
+                    ['_id'] : message[0]._id,
+                    ['requestedId'] : message[0].requestedId,
+                    ['projectId'] : message[0].projectId,
+                    ['title']: project.title,
+                    ['isFinish'] : project.isFinish,
+                    ['description'] : project.description
+                }
+                userMessages.push(newMessage)
+            }
+
+        }
+        user.messageArray = userMessages
         res.render("userDetail", {pageTitle: "User Detail", user})
     } catch (error) {
-        console.log("error");
+        console.log(error);
         res.redirect(routes.home);
     }
 }

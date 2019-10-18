@@ -9,6 +9,7 @@ import "./models/Goal";
 import "./models/Project";
 import "./models/Story";
 import "./models/User";
+import "./models/Message"
 
 const PORT = process.env.PORT;
 

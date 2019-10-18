@@ -1,6 +1,7 @@
 import routes from "../routers/routes";
 import User from "../models/User";
 import Project from "../models/Project";
+import Message from "../models/Message";
 import Goal from "../models/Goal";
 import { objectTypeIndexer } from "babel-types";
 
@@ -15,10 +16,26 @@ export const marketDetail = async (req, res) => {
 }
 
 export const reqParticipateProject = async (req,res) =>{
+    var message = null;
     const {
         params: {id}
     } = req;
     const pro = await Project.findById(id);
-    console.log( pro)
-    res.render("reqParticipateProject", { pageTitle: "Market Detail", pro });
+    if( pro.requiredPeople >= 1 && req.user.currentProject[id] == null ) {
+        message = Message.create({
+            requestedId: req.user._id,
+            projectId: id,
+            isAccepted: false
+        });
+        res.render('reqParticipateProject', {pageTitle:"Success", message})
+    }
+    else if(req.user.currentProject[id] != null) {
+        res.render('reqParticipateProject', {pageTitle: "your project", message})
+    }
+    else if(Message.find().where('requestId').equals(req.user._id) != null){
+        res.render('reqParticipateProject', {pageTitle:"Already participated!", message})
+    }
+    else {
+        res.render("reqParticipateProject", { pageTitle: "Unexpected Error", message });
+    }
 }

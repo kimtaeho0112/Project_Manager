@@ -1,0 +1,9 @@
+mixin messageBlock(message = {})
+    .projectGoalBlock
+        h4.projectGoalBlock__title=message.title
+        if !message.isAccepted
+            h6=message.descriptiion
+            a(href=routes.addMyGoal(message.id)) 
+                button 프로필 살펴보기
+        else
+            h4.projectGoalBlock__charge=editGoal.chargername[0]
