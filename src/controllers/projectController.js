@@ -122,3 +122,13 @@ export const postAddGoal = async (req, res) => {
         console.log("error");
     }
 }
+
+export const agreeParticipate = async ( req, res ) => {
+    const {
+        params: {id}
+    } = req;
+    console.log(req)
+    
+    const owner = await User.findById(id);
+    ptcUser
+}

@@ -18,7 +18,7 @@ export const postLogin = passport.authenticate("local", {
 
 export const userDetail = async (req, res) => {
     try {
-        const user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
+        var user = await User.findById(req.user._id).populate("currentProject").populate("finishedProject");
         var userMessages = [];
 
         for( const x of user.currentProject){
@@ -28,21 +28,22 @@ export const userDetail = async (req, res) => {
                                          
             if( message[0] == null ) continue;
             else{
-                var project = await Projects.findById(message[0].projectId);
                 var newMessage = {
                     ['isAccepted'] : message[0].isAccepted,
-                    ['_id'] : message[0]._id,
+                    ['MessageId'] : message[0]._id,
                     ['requestedId'] : message[0].requestedId,
                     ['projectId'] : message[0].projectId,
-                    ['title']: project.title,
-                    ['isFinish'] : project.isFinish,
-                    ['description'] : project.description
+                    ['title']: x.title,
+                    ['isFinish'] : x.isFinish,
+                    ['description'] : x.description,
+                    ['userId'] : user.id
                 }
                 userMessages.push(newMessage)
             }
         }
-        user.messageArray = userMessages
-        res.render("userDetail", {pageTitle: "User Detail", user})
+        userMessages['user'] = user;
+        console.log('user', userMessages);
+        res.render("userDetail", {pageTitle: "User Detail", userMessages})
     } catch (error) {
         console.log(error);
         res.redirect(routes.home);
@@ -174,5 +175,7 @@ export const market = async (req, res) => {
 }
 
 export const profileAnother = (req, res) => {
-    res.render("profileAnother", {pageTitle: "Another Person Profile" });
+    console.log(req.user)
+    const profile = req.user
+    res.render("profileAnother", {pageTitle: "Another Person Prfile", profile});
 }
