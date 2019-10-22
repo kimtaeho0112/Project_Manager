@@ -4,10 +4,14 @@ include mixins/messageBlock
 
 block content  
     .userDetail
+<<<<<<< HEAD
         if user.id === loggedUser.id 
+=======
+        if userMessages[0].userId === loggedUser.id
+>>>>>>> dc129bda36e802b269cf012df37adf1d89f34063
             .userDetail__listtitle 받은 요청 내역
                 .userDetail__displayProject
-                    each item in user.messageArray
+                    each item in userMessages
                         if item != null
                             +messageBlock({
                                 id: item.projectId,
@@ -17,7 +21,7 @@ block content
 
             .userDetail__listtitle 진행중인 프로젝트 
                 .userDetail__displayProject
-                    each item in user.currentProject
+                    each item in userMessages.user.currentProject
                         +projectBlock({
                             id: item.id,
                             title: item.title,
@@ -26,7 +30,7 @@ block content
 
             .userDetail__listtitle 종료된 프로젝트
                 .userDetail__displayProject
-                    each item in user.finishedProject
+                    each item in userMessages.user.finishedProject
                         +projectBlock({
                             id: item.id,
                             title: item.title,
