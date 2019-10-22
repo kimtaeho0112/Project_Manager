@@ -1,9 +1,9 @@
 .projectDetail__list {
     margin-bottom: 25px;
 }
-.projectGoalBlock {
+.myGoalBlock {
     margin-bottom: 20px;
-    .projectGoalBlock__container{
+    .myGoalBlock__container{
         z-index: -1;
         content: "";
         left: 10px;
@@ -24,18 +24,18 @@
         position: relative;
         display: inline-block;
         vertical-align: center;
-        height: 270px;
+        height: 220px;
         width: 400px;
         margin: 10px;
-        background-color: #A8E0FF;
+        background-color: #8EE3F5;
         list-style: none;
         border-radius: 5px;
     
-    .projectGoalBlock__title {
+    .myGoalBlock__title {
         font-size: 18px;
         padding-bottom: 5px;
     }
-    .projectGoalBlock__text {
+    .myGoalBlock__text {
         font-size: 13px;
         padding-left: 10px;
     }

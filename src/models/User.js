@@ -18,8 +18,8 @@ const UserSchema = new mongoose.Schema({
     ],
     goal: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Goal"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Goal"
         }
     ]
 });

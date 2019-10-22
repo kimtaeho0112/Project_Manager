@@ -1,12 +1,18 @@
 mixin projectGoalBlock(projectGoal = {})
     .projectGoalBlock
-        ul.projectGoalBlock__container
+        ul.projectGoalBlock__container 
             li
                 span.projectGoalBlock__title 목표내용 <br/>
-                    span.projectGoalBlock__title=projectGoal.description
+                    span.projectGoalBlock__text=projectGoal.description
             li
-                if !projectGoal.isCharged
-                    span.projectGoalBlock__charge NOT CHARGE <br/>
-                else
-                    span.projectGoalBlock__charge 책임자 <br/>
-                        span.projectGoalBlock__charge=projectGoal.chargername[0] 
+                span.projectGoalBlock__title 시작일 <br/>
+                    span.projectGoalBlock__text=projectGoal.createdAt
+            li
+                span.projectGoalBlock__title 마감일 <br/>
+                    span.projectGoalBlock__text=projectGoal.dueDate
+            li
+                span.projectGoalBlock__title 책임자 <br/>
+                    if !projectGoal.isCharged
+                        span.projectGoalBlock__text 담당 없음 <br/>
+                    else
+                        span.projectGoalBlock__text=projectGoal.chargername[0] 

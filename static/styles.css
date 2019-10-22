@@ -75,6 +75,20 @@ input[type="submit"] {
 .userDetail__listtitle {
   font-size: 50px; }
 
+.userDetail__displayProject {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
 header {
   background-color: #333;
   width: 100%;
@@ -181,30 +195,115 @@ a:hover {
     margin-right: 10px; }
 
 .projectBlock .projectBlock__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
   margin-bottom: 50px;
-  width: 300px;
-  height: 120px;
+  width: 200px;
+  height: 80px;
+  margin-top: 10px;
   border: 0.1rem outset black;
   -webkit-box-shadow: 10px 10px 5px #aaaaaa;
      -moz-box-shadow: 10px 10px 5px #aaaaaa;
-          box-shadow: 10px 10px 5px #aaaaaa; }
+          box-shadow: 10px 10px 5px #aaaaaa;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px; }
 
 .projectDetail__list {
   display: grid; }
 
-.projectGoalBlock .projectGoalBlock__container {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  height: 100px;
-  width: 300px;
-  margin: 10px;
-  background-color: bisque;
-  list-style: none; }
-  .projectGoalBlock .projectGoalBlock__container .projectGoalBlock__title {
-    font-size: 20px; }
-  .projectGoalBlock .projectGoalBlock__container .projectGoalBlock__charge {
-    font-size: 20px; }
+.project__goal {
+  font-size: 25px; }
+
+.project__myrole {
+  font-size: 25px; }
+
+.project__timeline {
+  font-size: 25px; }
+
+.projectDetail__list {
+  margin-bottom: 25px; }
+
+.projectGoalBlock {
+  margin-bottom: 20px; }
+  .projectGoalBlock .projectGoalBlock__container {
+    z-index: -1;
+    content: "";
+    left: 10px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    padding: 0;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    padding-top: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: center;
+    height: 270px;
+    width: 400px;
+    margin: 10px;
+    background-color: #A8E0FF;
+    list-style: none;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px; }
+    .projectGoalBlock .projectGoalBlock__container .projectGoalBlock__title {
+      font-size: 18px;
+      padding-bottom: 5px; }
+    .projectGoalBlock .projectGoalBlock__container .projectGoalBlock__text {
+      font-size: 13px;
+      padding-left: 10px; }
+
+li {
+  padding-bottom: 10px; }
+
+.projectDetail__list {
+  margin-bottom: 25px; }
+
+.myGoalBlock {
+  margin-bottom: 20px; }
+  .myGoalBlock .myGoalBlock__container {
+    z-index: -1;
+    content: "";
+    left: 10px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    padding: 0;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    padding-top: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: center;
+    height: 220px;
+    width: 400px;
+    margin: 10px;
+    background-color: #8EE3F5;
+    list-style: none;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px; }
+    .myGoalBlock .myGoalBlock__container .myGoalBlock__title {
+      font-size: 18px;
+      padding-bottom: 5px; }
+    .myGoalBlock .myGoalBlock__container .myGoalBlock__text {
+      font-size: 13px;
+      padding-left: 10px; }
+
+li {
+  padding-bottom: 10px; }

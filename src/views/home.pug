@@ -4,5 +4,6 @@ block content
     .home__container
         span 대학생활 로드맵 
         .home__createProject
-            span.header__button
-                a(href=routes.project) CREATE PROJECT
+            if(loggedUser)
+                span.header__button
+                    a(href=routes.project) CREATE PROJECT

@@ -1,13 +1,15 @@
-.projectBlock {
+.projectBlock { 
   
     .projectBlock__title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 300;
       text-align: center;
       margin-bottom: 50px;
-      width: 300px;
-      height:120px;
+      width: 200px;
+      height:80px;
+      margin-top: 10px;
       border: 0.1rem outset black;
       box-shadow: 10px 10px 5px #aaaaaa;
+      border-radius: 5px;
     }
   }

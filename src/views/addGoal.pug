@@ -5,6 +5,10 @@ block content
         .project__container
         form(action=routes.addGoal(pro._id), method="post")
             .project__upload
+            span START DATE
+                input(type="date", name="start", placeholder="시작일", required=true)
+            span DUE DATE
+                input(type="date", name="due", placeholder="마감일", required=true)
             span GOAL NAME
-                input(type="text", name="goalName", placeholder="Goal Name", required=true)
-            input(type="submit", value="Add New Goal")
+                input(type="text", name="goalName", placeholder="목표 이름", required=true)
+            input(type="submit", value="업무 추가")

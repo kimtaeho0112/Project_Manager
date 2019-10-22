@@ -99,7 +99,6 @@ export const postCreateProject = async (req, res) => {
             start,
             due,
             desc,
-            goal,
             reqPeople
         }
     } = req;
@@ -112,11 +111,11 @@ export const postCreateProject = async (req, res) => {
             dueDate: due,
             requiredPeople : reqPeople
         });
-
+/*
         const newGoal = await Goal.create({
             description: goal
         });
-
+*/
         User.findByIdAndUpdate(req.user._id,
             {
                 $push: { "currentProject": newProject._id }
@@ -129,8 +128,8 @@ export const postCreateProject = async (req, res) => {
 
         req.user.currentProject.push(newProject._id);
         req.user.save();
-        newProject.goal.push(newGoal._id);
-        newProject.save();
+        // newProject.goal.push(newGoal._id);
+        // newProject.save();
         res.redirect(routes.home);
     } catch(error) {
         console.log("error");

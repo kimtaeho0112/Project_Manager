@@ -4,7 +4,8 @@ module.exports = {
       "no-console": "off"
     },
     env: {
-      node: true
+      node: true,
+      browser: true
     },
     "parser" : "babel-eslint"
   };

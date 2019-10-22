@@ -1,21 +1,27 @@
 extends layouts/main.pug
 include mixins/projectGoalBlock
+include mixins/myGoalBlock
 
-block content
-    span.project__goal PROJECT GOAL
+block content 
+    span.project__goal 프로젝트 업무
         button
-            a(href=routes.editGoal(pro.id)) EDIT GOAL
-    .projectDetail__list    
+            a(href=routes.editGoal(pro.id)) 업무 수정
+    .projectDetail__list 전체 업무
         each item in pro.goal
             +projectGoalBlock({
                 description: item.description,
                 isCharged: item.isCharged,
                 charge: item.charge,
-                chargername: item.chargername
+                chargername: item.chargername,
+                createdAt: item.createdAt,
+                dueDate: item.dueDate
             })
-    .project__myrole
-        | MY ROLE, EDIT MY ROLE BUTTON
+    .projectDetail__list  내 업무
+        each item in user.goal
+            +myGoalBlock({
+                description: item.description,
+                createdAt: item.createdAt,
+                dueDate: item.dueDate
+            })
     .project__timeline 
-        | TIMELINE
-    .project__calender
-        | CALENDER
+        | 타임라인

@@ -4,7 +4,7 @@ include mixins/messageBlock
 
 block content  
     .userDetail
-        if user.id === loggedUser.id
+        if user.id === loggedUser.id 
             .userDetail__listtitle 받은 요청 내역
                 .userDetail__displayProject
                     each item in user.messageArray

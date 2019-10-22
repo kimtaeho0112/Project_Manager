@@ -4,7 +4,7 @@ include mixins/editGoalBlock
 block content
     span.project__goal CURRENT GOAL
         a(href=routes.addGoal(pro.id))
-            button CREATE GOAL
+            button 업무 생성
         each item in pro.goal
             +editGoalBlock({
                 id: item.id,

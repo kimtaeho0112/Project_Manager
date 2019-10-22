@@ -15,7 +15,9 @@ export const projectDetail = async (req, res) => {
       // console.log(id);
       const pro = await Project.findById(id).populate("goal").populate("charge").populate("chargername");
       // console.log(pro.goal);
-      res.render("projectDetail", { pageTitle: "Project Deatil", pro });
+      const reqid = req.user._id;
+      const user = await User.findById(reqid).populate("goal");
+      res.render("projectDetail", { pageTitle: "Project Deatil", pro, user });
 }
 
 export const editGoal = async (req, res) => {
@@ -25,9 +27,9 @@ export const editGoal = async (req, res) => {
       // console.log(id);
       const pro = await Project.findById(id).populate("goal");
       // console.log(pro.goal[0]._id);
-      const goal = await Goal.findById(pro.goal[0]._id);
+      // const goal = await Goal.findById(pro.goal[0]._id);
       // console.log(pro);
-    res.render("editGoal", {pageTitle: "edit Goal", pro, goal });
+    res.render("editGoal", {pageTitle: "edit Goal", pro });
 }
 
 
@@ -36,7 +38,6 @@ export const addMyGoal = async (req, res) => {
     const {
         params : { id }
     } = req;
-    const goal = await Goal.findById(id);
     // console.log(goal.charge);
     // console.log(req.user._id);
     try {
@@ -65,6 +66,7 @@ export const addMyGoal = async (req, res) => {
             safe: true, upsert: true, new: true
         });
     // console.log("No error at isCharged updating");
+    const goal = await Goal.findById(id);
     goal.update(
         { $push : {charge: req.user._id}}
     );
@@ -73,12 +75,23 @@ export const addMyGoal = async (req, res) => {
         { $push: {chargername: user.name}}
     );
     // goal.isCharged = true;
+    await User.findByIdAndUpdate(req.user._id,
+        {
+            $push: { "goal": goal.id }
+        },
+        {
+            safe: true, upsert: true, new: true
+        });
+    req.user.update(
+        { $push: {goal: goal.id}}
+    );
     goal.save();
     console.log("No error at save 1");
     goal.save();
     console.log("No error at save 2");
     goal.save();
     console.log("No error at save 3");
+    req.user.save();
     res.redirect(routes.home);
     } catch(error){
         console.log("error");
@@ -100,13 +113,15 @@ export const postAddGoal = async (req, res) => {
     } = req;
     const {
         body: {
-            goalName
+            goalName, start, due
         }
     } = req;
 
     try {
         const newGoal = await Goal.create({
-            description: goalName
+            description: goalName,
+            start: start,
+            dueDate: due
         });
         const pro = await Project.findById(id);
         await Project.findByIdAndUpdate(id,
@@ -116,7 +131,9 @@ export const postAddGoal = async (req, res) => {
             {
                 safe: true, upsert: true, new: true
             });
-            pro.save();
+        pro.save();
+        
+
             res.redirect(routes.projectDetail(id));
     } catch(error){
         console.log("error");
