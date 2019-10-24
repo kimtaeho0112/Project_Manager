@@ -17,6 +17,7 @@ const MARKET_DETAIL = "/:id";
 const REQ_PROJ = "/:id/requestParticipate"
 const EDIT_GOAL = "/:id/editGoal";
 const ADD_GOAL = "/:id/addGoal";
+const ADD_MARKET = "/:id/addMarket";
 
 // GOAL
 const GOAL = "/goal";
@@ -71,6 +72,13 @@ const routes = {
             return `/project/${id}/addGoal`;
         } else {
             return ADD_GOAL;
+        }
+    },
+    addMarket: (id) => {
+        if(id) {
+            return `/project/${id}/addMarket`;
+        } else {
+            return ADD_MARKET;
         }
     },
     reqParticipateProject: (id)=>{

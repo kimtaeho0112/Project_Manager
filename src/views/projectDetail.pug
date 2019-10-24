@@ -3,9 +3,12 @@ include mixins/projectGoalBlock
 include mixins/myGoalBlock
 
 block content 
-    span.project__goal 프로젝트 업무
+    span.project__goal 프로젝트 업무 
         button
             a(href=routes.editGoal(pro.id)) 업무 수정
+        if pro.onMarket === false
+            button
+                a(href=routes.addMarket(pro.id)) 공고 등록
     .projectDetail__list 전체 업무
         each item in pro.goal
             +projectGoalBlock({

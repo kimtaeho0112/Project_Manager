@@ -25,11 +25,18 @@ const ProjectSchema = new mongoose.Schema({
     ],
     onMarket:{
         type: Boolean,
-        default: true
+        default: false
     },
     requiredPeople:{
         type: Number,
         default: 1
+    },
+    onMarketStart:{
+        type: Date,
+        default: Date.now
+    },
+    onMarketDue: {
+        type: Date
     }
 });
 

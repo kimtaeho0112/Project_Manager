@@ -38,12 +38,13 @@ export const userDetail = async (req, res) => {
                     ['description'] : x.description,
                     ['userId'] : user.id
                 }
-                userMessages.push(newMessage)
+                userMessages.push(newMessage);
             }
         }
         userMessages['user'] = user;
+        // console.log(userMessages[0]);
         console.log('user', userMessages);
-        res.render("userDetail", {pageTitle: "User Detail", userMessages})
+        res.render("userDetail", {pageTitle: "User Detail", userMessages, user});
     } catch (error) {
         console.log(error);
         res.redirect(routes.home);
@@ -92,7 +93,7 @@ export const logout = (req, res) => {
 export const getCreateProject = (req, res) => {
     res.render("createProject", {pageTitle: "Project"});
 }
-
+ 
 export const postCreateProject = async (req, res) => {
     const {
         body: {
@@ -151,7 +152,7 @@ export const getUnfinishedProjects = async(req, res) => {
 
 
 
-export const market = async (req, res) => {
+export const market = async (req, res) => {  
 // <<<<<<< HEAD
 //     var projects = null
 //     try {
@@ -168,7 +169,7 @@ export const market = async (req, res) => {
 // =======
     const allPro = await Project.find()
                                 .where('isFinish').equals(false)
-                                .select('_id isFinish goal requirePeople title createdAt dueDate onMarket')
+                                .select('_id isFinish goal requiredPeople title createdAt dueDate onMarket onMarketStart onMarketDue')
     console.log(allPro)
     res.render("market", { pageTitle: "Market", allPro });
 }

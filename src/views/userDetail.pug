@@ -2,13 +2,9 @@ extends layouts/main.pug
 include mixins/projectBlock
 include mixins/messageBlock
 
-block content  
+block content   
     .userDetail
-<<<<<<< HEAD
-        if user.id === loggedUser.id 
-=======
-        if userMessages[0].userId === loggedUser.id
->>>>>>> dc129bda36e802b269cf012df37adf1d89f34063
+         if user.id === loggedUser.id
             .userDetail__listtitle 받은 요청 내역
                 .userDetail__displayProject
                     each item in userMessages
@@ -28,7 +24,7 @@ block content
                             createdAt: item.createdAt
                         })
 
-            .userDetail__listtitle 종료된 프로젝트
+            .userDetail__listtitle 포트폴리오
                 .userDetail__displayProject
                     each item in userMessages.user.finishedProject
                         +projectBlock({

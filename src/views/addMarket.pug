@@ -1,0 +1,7 @@
+extends layouts/main.pug
+
+block content
+    .form-container
+    form(action=routes.addMarket(pro._id), method="post")
+        input(type="date", name="due", placeholder="due date")
+        input(type="submit", value="공고 등록")

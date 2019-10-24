@@ -1,26 +1,15 @@
 extends layouts/main.pug
 include mixins/marketBlock
 
-block content
-    .market__list
-        .userDetail__listtitle 열려있는 프로젝트
+block content  
+    .market__list 
+        .userDetail__listtitle 공고중인 프로젝트
            each item in allPro
                 if item.onMarket
                     +marketBlock({
                         id: item.id,
                         title: item.title,
-                        createdAt: item.createdAt,
-                        onMarket: item.onMarket,
+                        onMarketStart: item.onMarketStart,
+                        onMarketDue: item.onMarketDue,
                         requiredPeople: item.requiredPeople
-                    })
-
-        .userDetail__listtitle 마감된 프로젝트
-            each item in allPro
-                if !item.onMarket
-                    +marketBlock({
-                        id: item.id,
-                        title: item.title,
-                        createdAt: item.createdAt,
-                        onMarket: item.onMarket,
-                        requiredPeople: item.requiredPeople
-                    })
+                    }) 

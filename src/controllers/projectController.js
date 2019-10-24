@@ -133,7 +133,6 @@ export const postAddGoal = async (req, res) => {
             });
         pro.save();
         
-
             res.redirect(routes.projectDetail(id));
     } catch(error){
         console.log("error");
@@ -148,4 +147,42 @@ export const agreeParticipate = async ( req, res ) => {
     
     const owner = await User.findById(id);
     ptcUser
+}
+
+export const getAddMarket = async (req, res) => {
+    const {
+        params : {id}
+    } = req;
+
+    const pro = await Project.findById(id);
+    await Project.findByIdAndUpdate(id,
+        {
+            $set: { "onMarket": true }
+        },
+        {
+            safe: true, upsert: true, new: true
+        });
+    res.render("addMarket", {pageTitle:"Add Market", pro});
+    pro.save();
+}
+
+export const postAddMarket = async (req, res) => {
+    const {
+        body: {due}
+    } = req;
+
+    const {
+        params: {id}
+    } = req;
+
+    const pro = await Project.findById(id);
+    await Project.findByIdAndUpdate(id,
+        {
+            $set: { "onMarketDue": due }
+        },
+        {
+            safe: true, upsert: true, new: true
+        });
+    pro.save();
+    res.redirect(routes.projectDetail(id));
 }
