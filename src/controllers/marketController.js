@@ -39,4 +39,4 @@ export const reqParticipateProject = async (req,res) =>{
     else {
         res.render("reqParticipateProject", { pageTitle: "Unexpected Error", message });
     }
-}
+} 
