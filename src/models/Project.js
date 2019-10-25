@@ -5,6 +5,16 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         required: "Title is required"
     },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    member: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
     isFinish: {
         type: Boolean,
         default: false

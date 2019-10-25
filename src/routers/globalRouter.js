@@ -12,7 +12,8 @@ import {
     getCreateProject, 
     postCreateProject,
     market,
-    profileAnother
+    profileAnother,
+    acceptReq
 } from "../controllers/userController";
 
 const globalRouter = express.Router();
@@ -28,5 +29,6 @@ globalRouter.get(routes.project, getCreateProject);
 globalRouter.post(routes.project, postCreateProject);
 globalRouter.get(routes.market, market);
 globalRouter.get(routes.profileAnother(), profileAnother);
+globalRouter.get(routes.acceptReq(), acceptReq);
 
 export default globalRouter;

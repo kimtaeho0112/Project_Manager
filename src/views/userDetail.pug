@@ -5,12 +5,13 @@ include mixins/messageBlock
 block content   
     .userDetail
          if user.id === loggedUser.id
-            .userDetail__listtitle 받은 요청 내역
+            .userDetail__listtitle 받은 요청 내역 
                 .userDetail__displayProject
                     each item in userMessages
                         if item != null
                             +messageBlock({
                                 id: item.projectId,
+                                name: item.name,
                                 title: item.title,
                                 requestedId: item.requestedId
                             })

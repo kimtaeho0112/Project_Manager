@@ -7,8 +7,10 @@ const MARKET = "/market"
 // User
 const USERS = "/users";
 const USER_DETAIL = "/:id";
+const ACCEPT_REQ = "/:id/acceptReq";
+const REJECT_REQ = "/:id/rejectReq";
 const ME = "/me";
-const PROFILE_ANOTHER = "/:id" 
+const PROFILE_ANOTHER = "/:id"  
 
 // PROJECT
 const PROJECT = "/project";
@@ -34,6 +36,20 @@ const routes = {
             return `/users/${id}`;
         } else {
             return USER_DETAIL;
+        }
+    },
+    acceptReq: (id) => {
+        if(id) {
+            return `/users/${id}/acceptReq`;
+        } else {
+            return ACCEPT_REQ;
+        }
+    },
+    rejectReq: (id) => {
+        if(id) {
+            return `/users/${id}/rejectReq`;
+        } else {
+            return REJECT_REQ;
         }
     },
     profileAnother: (id) => {

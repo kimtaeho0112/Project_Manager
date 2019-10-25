@@ -20,13 +20,17 @@ export const reqParticipateProject = async (req,res) =>{
     const {
         params: {id} 
     } = req;
+    const user = await User.findById(req.user._id);
+    // console.log(user.name);
     const pro = await Project.findById(id);
     if( pro.requiredPeople >= 1 && req.user.currentProject[id] == null ) {
         message = await Message.create({
             requestedId: req.user._id,
+            name: user.name,
             projectId: id,
+            projectOwnerId: pro.owner,
             isAccepted: false
-        });
+        }); 
         // console.log(message.requestedId);
         res.render('reqParticipateProject', {pageTitle:"Success", message});
     }

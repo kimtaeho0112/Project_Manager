@@ -6,6 +6,7 @@ import passport from "passport";
 import Project from "../models/Project";
 import Goal from "../models/Goal";
 import Message from "../models/Message"
+import { conditionalExpression } from "babel-types";
 
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "login" });
@@ -24,13 +25,14 @@ export const userDetail = async (req, res) => {
         for( const x of user.currentProject){
            var message =  await Message.find({})
                                          .where('projectId').equals(x._id)
-                                         .select('_id requestedId projectId isAccepted');
+                                         .select('_id requestedId projectId isAccepted name');
                                          
             if( message[0] == null ) continue;
             else{
                 var newMessage = {
                     ['isAccepted'] : message[0].isAccepted,
-                    ['MessageId'] : message[0]._id,
+                    ['MessageId'] : message[0]._id, 
+                    ['name'] : message[0].name,
                     ['requestedId'] : message[0].requestedId,
                     ['projectId'] : message[0].projectId,
                     ['title']: x.title,
@@ -39,9 +41,9 @@ export const userDetail = async (req, res) => {
                     ['userId'] : user.id
                 }
                 userMessages.push(newMessage);
-            }
+            } 
         }
-        userMessages['user'] = user;
+        userMessages['user'] = user; 
         // console.log(userMessages[0]);
         console.log('user', userMessages);
         res.render("userDetail", {pageTitle: "User Detail", userMessages, user});
@@ -107,6 +109,7 @@ export const postCreateProject = async (req, res) => {
     try {
         const newProject = await Project.create({
             title: title,
+            owner: req.user._id,
             isFinish: false,
             description: desc,
             createdAt: start,
@@ -174,8 +177,60 @@ export const market = async (req, res) => {
     res.render("market", { pageTitle: "Market", allPro });
 }
 
-export const profileAnother = (req, res) => {
-    console.log(req.user)
-    const profile = req.user
+export const profileAnother = async (req, res) => {
+    // console.log(req.user)
+    const {
+        params :{id}
+    } = req;
+    const profile = await User.findById(id);
     res.render("profileAnother", {pageTitle: "Another Person Prfile", profile});
+}
+
+export const acceptReq = async (req, res) => {
+    const {
+        params: {id}
+    } = req;
+    // 신청자의 ID
+    try{
+              console.log("Error at thisMessage");
+
+       const thisMessage = await Message.findOne({ requestedId: id} , {ProjectOwnerId: req.user._id });
+
+        await Message.findByIdAndUpdate(thisMessage._id,
+        {
+            $set: { "isAccepted": true }
+        },
+        {
+            safe: true, upsert: true, new: true
+        });
+        // console.log("#################");
+        // console.log(thisMessage._id);
+        const pro = await Project.findOne({ _id:thisMessage.projectId });
+        await Project.findByIdAndUpdate(thisMessage.projectId,
+            {
+                $push: { "member": id }
+            },
+            {
+                safe: true, upsert: true, new: true
+            });
+        pro.update(
+            { $push: {member: id}}
+        );
+        pro.save();
+
+        await Message.findByIdAndRemove(thisMessage._id);
+
+        res.redirect(routes.me);
+    } catch(error){
+        console.log("error");
+    }
+}
+
+export const rejectReq = async (req, res) => {
+    const thisMessage = await Message.findOne({ requestedId: id} , {ProjectOwnerId: req.user._id });
+    const pro = await Project.findOne({ _id:thisMessage.projectId });
+    await Message.findByIdAndRemove(thisMessage._id);
+
+    res.redirect(routes.me);
+
 }

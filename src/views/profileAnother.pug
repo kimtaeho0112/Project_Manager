@@ -1,12 +1,20 @@
 extends layouts/main.pug
+include mixins/projectBlock
 
 block content
     | 프로필 내역
-    h5=profile.name
-    h5=profile.email
+    h4=profile.name
+    h4=profile.email
+    h4 참가했던 프로젝트
+        each item in profile.finishedProject
+            +projectBlock({
+                id: item.id,
+                title: item.title,
+                createdAt: item.createdAt
+            }) 
     
-    a(href=routes.agreeParticipate(profile.id))
+    a(href=routes.acceptReq(profile.id))
         button 참여 수락
     
-    //- a(href=routes.denyParticipate(profile.id))
-    //-     button 참여 거절
+    a(href=routes.rejectReq(profile.id))
+        button 참여 거절

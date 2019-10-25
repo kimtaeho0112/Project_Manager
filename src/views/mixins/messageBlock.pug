@@ -1,8 +1,8 @@
-mixin messageBlock(message = {}) 
+mixin messageBlock(message = {})  
     .projectGoalBlock   
-        h4.projectGoalBlock__title=message.title
         if !message.isAccepted
-            h6=message.descriptiion
+            h6=message.title
+            h6=message.name
             a(href=routes.profileAnother(message.requestedId)) 
                 button 프로필 살펴보기
         else
