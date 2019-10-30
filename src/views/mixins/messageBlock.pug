@@ -1,9 +1,9 @@
-mixin messageBlock(message = {})  
-    .projectGoalBlock   
+mixin messageBlock(message = {})   
+    .messageBlock   
         if !message.isAccepted
             h6=message.title
             h6=message.name
             a(href=routes.profileAnother(message.requestedId)) 
                 button 프로필 살펴보기
         else
-            h4.projectGoalBlock__charge=editGoal.chargername[0]
+            h4.messageBlock__charge=editGoal.chargername[0]

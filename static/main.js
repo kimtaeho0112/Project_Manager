@@ -3560,7 +3560,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function loadJQuery() {\n  var oScript = document.createElement(\"script\");\n  oScript.type = \"text/javascript\";\n  oScript.charset = \"utf-8\";\n  oScript.src = \"http://code.jquery.com/jquery-1.6.2.min.js\";\n  document.getElementsByTagName(\"head\")[0].appendChild(oScript);\n}\n\n$('nav').click(function () {\n  $('.menu').css('background-color', '#ff5e1a');\n  $('.dropDown').slideDown(\"slow\");\n});\n$('nav').mouseleave(function () {\n  $('.menu').css('background-color', '#ff782e');\n  $('.dropDown').slideUp(\"slow\", function () {\n    $(this).fadeOut(2000);\n  });\n});\n\n//# sourceURL=webpack:///./src/assets/js/header.js?");
+eval("\n\n//# sourceURL=webpack:///./src/assets/js/header.js?");
 
 /***/ }),
 

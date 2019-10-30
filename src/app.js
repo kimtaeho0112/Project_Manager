@@ -15,7 +15,7 @@ import globalRouter from "./routers/globalRouter";
 import projectRouter from "./routers/projectRouter";
 import goalRouter from "./routers/goalRouter";
 import marketRouter from "./routers/marketRouter";
-
+import events from "./events";
 import "./passport";
 
 const app = express();
@@ -25,6 +25,7 @@ app.use(helmet());
 app.set("view engine", "pug");
 app.use("/static", express.static("static"));
 app.set("views", path.join(__dirname, "views"));
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -13,10 +13,12 @@ export const projectDetail = async (req, res) => {
         params: { id }
       } = req;
       // console.log(id);
-      const pro = await Project.findById(id).populate("goal").populate("charge").populate("chargername");
+      const pro = await Project.findById(id).populate("goal").populate("charge").populate("chargername").populate("member");
       // console.log(pro.goal);
       const reqid = req.user._id;
       const user = await User.findById(reqid).populate("goal");
+      console.log("##################");
+      console.log(pro.member);
       res.render("projectDetail", { pageTitle: "Project Deatil", pro, user });
 }
 
@@ -137,16 +139,6 @@ export const postAddGoal = async (req, res) => {
     } catch(error){
         console.log("error");
     }
-}
-
-export const agreeParticipate = async ( req, res ) => {
-    const {
-        params: {id}
-    } = req;
-    console.log(req)
-    
-    const owner = await User.findById(id);
-    ptcUser
 }
 
 export const getAddMarket = async (req, res) => {

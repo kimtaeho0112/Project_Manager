@@ -3,13 +3,13 @@ include mixins/marketBlock
 
 block content  
     .market__list 
-        .userDetail__listtitle 공고중인 프로젝트
+        .market__listtitle
            each item in allPro
                 if item.onMarket
                     +marketBlock({
                         id: item.id,
                         title: item.title,
-                        onMarketStart: item.onMarketStart,
+                        onMarketStart: item.onMarketStart, 
                         onMarketDue: item.onMarketDue,
                         requiredPeople: item.requiredPeople
                     }) 

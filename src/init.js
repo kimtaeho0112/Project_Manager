@@ -2,6 +2,8 @@ import "@babel/polyfill";
 import dotenv from "dotenv";
 import "./db";
 import app from "./app";
+import socketIO from "socket.io";
+import socketController from "./socketControllers";
 
 dotenv.config();
 
@@ -17,4 +19,10 @@ const handleListening = () => {
     console.log(`Listening on: http://localhost:${PORT}`);
 }
 
-app.listen(4000, handleListening);
+const server = app.listen(4000, handleListening); 
+
+const io = socketIO.listen(server);
+
+io.on("connection", socket => {
+    socketController(socket);
+});

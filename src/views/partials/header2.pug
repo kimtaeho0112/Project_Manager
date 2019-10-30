@@ -1,0 +1,24 @@
+nav(role="navigation")
+  div#menuToggle
+    input(type="checkbox")
+    span
+    span
+    span
+    
+    ul#menu
+        if !loggedUser
+            li
+                a.header__anchor(href=routes.home) HOME
+            li
+                a.header__anchor(href=routes.join) JOIN
+            li
+                a.header__anchor(href=routes.login) LOGIN
+        else
+            li
+                a.header__anchor(href=href=routes.home) HOME
+            li
+                a.header__anchor(href=routes.me) PROFILE
+            li
+                a.header__anchor(href=routes.market) MARKET
+            li
+                a.header__anchor(href=routes.logout) LOGOUT

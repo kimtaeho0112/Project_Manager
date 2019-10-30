@@ -1,18 +1,21 @@
 extends layouts/main.pug
-include mixins/projectGoalBlock
 
 block content
-    span.project__goal 프로젝트 참여하기
-        //- button
-        //-     a(href=routes.editGoal(pro.id)) EDIT GOAL
-    .projectDetail__list    
-        each item in pro.goal
-            +projectGoalBlock({
-                description: item.description,
-                isCharged: item.isCharged,
-                charge: item.charge,
-                chargername: item.chargername
-            })
-    .project__myrole
+    .marketDetail 
+        ul.marketDetail__container 
+            li
+                span.marketDetail__title 프로젝트 제목 <br />
+                    span.marketDetail__text=pro.title 
+            li
+                span.marketDetail__title 프로젝트 목표 <br />
+                    span.marketDetail__text=pro.description 
+            li
+                span.marketDetail__title 공고 마감 남은시간 <br />
+                    span.marketDetail__text=leftDate 
+            li
+                span.marketDetail__title 책임자 <br />
+                    span.marketDetail__text=ownerName.name 
+
+    .marketDetail__myrole
         button
             a(href=routes.reqParticipateProject(pro.id)) 참여 신청

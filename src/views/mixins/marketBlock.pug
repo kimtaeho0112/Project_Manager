@@ -1,12 +1,8 @@
 mixin marketBlock(market = {})
-    .projectBlock 
+    .marcketBlock 
         a(href=routes.marketDetail(market.id)) 
             .marketBlock__title
                 h3 프로젝트 이름
                     h4=market.title 
                 h3 필요인원
                     h4=market.requiredPeople
-                h3 공고 시작일
-                    h4=market.onMarketStart
-                h3 공고 마감일
-                    h4=market.onMarketDue

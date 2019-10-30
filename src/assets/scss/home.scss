@@ -1,13 +1,19 @@
-.home__main{
+.home__main {
+    margin: 0 auto;
 }
-.home__container{
+
+.home__hello {
+    font-size: 35px;
+}
+
+.home__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 100px;
 }
 
-.home__createProject{
-    margin-top: 10px;
+.home__createProject {
+    margin-top: 80px;
     font-size: 30px;
 }

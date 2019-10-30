@@ -6,13 +6,23 @@ import Goal from "../models/Goal";
 import { objectTypeIndexer } from "babel-types";
 
 export const marketDetail = async (req, res) => {
+    try {
     const {
         params: { id }
       } = req;
+
       // console.log(id);
-      const pro = await Project.findById(id).populate("goal").populate("charge").populate("chargername");
+      const pro = await Project.findById(id);
       // console.log(pro.goal);
-      res.render("marketDetail", { pageTitle: "Market Detail", pro });
+      console.log(pro.owner);
+      const now = new Date().getDate;
+      const leftDate = pro.onMarketDue - pro.onMarketStart;
+      const ownerName = await User.findById(pro.owner);
+      // console.log("LEFT DATE", leftDate);
+      res.render("marketDetail", { pageTitle: "Market Detail", pro, leftDate, ownerName });
+    } catch(error){
+        console.log("eror");
+    }
 }
 
 export const reqParticipateProject = async (req,res) =>{

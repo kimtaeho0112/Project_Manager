@@ -5,14 +5,14 @@ block content
         .project__container
         form(action=routes.project, method="post")
             .project__upload
-            span PROJECT NAME
+            span 프로젝트 이름
                 input(type="text", name="title", placeholder="Project Name", required=true)
-            span START DATE
+            span 시작일
                 input(type="date", name="start", placeholder="Start Date")
-            span DUE DATE
+            span 마감일
                 input(type="date", name="due", placeholder="Due Date")
-            span DESCRIPTION
+            span 프로젝트 카테고리
                 input(type="text", name="desc", placeholder="Short Explanation")
-            SPAN REQUIRED PEOPLE
+            SPAN 필요 인원
                 input(type="number", name="requiredPeople", placeholder="Required People")
             input(type="submit", value="프로젝트 생성하기")

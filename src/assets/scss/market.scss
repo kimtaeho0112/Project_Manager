@@ -1,6 +1,13 @@
-.market__list{
-    border: 5rem;
-    width: 100px;
-    height: 100px;
+.market__list {
+    font-size: 25px;
+    margin-left: 150px;
     background-color: bisque;
+}
+.market__listtitle{
+    font-size: 35px;
+    margin-left: 150px;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-content: center;
 }

@@ -173,7 +173,8 @@ export const market = async (req, res) => {
     const allPro = await Project.find()
                                 .where('isFinish').equals(false)
                                 .select('_id isFinish goal requiredPeople title createdAt dueDate onMarket onMarketStart onMarketDue')
-    console.log(allPro)
+    // console.log(allPro)
+    
     res.render("market", { pageTitle: "Market", allPro });
 }
 
@@ -205,17 +206,22 @@ export const acceptReq = async (req, res) => {
         });
         // console.log("#################");
         // console.log(thisMessage._id);
-        const pro = await Project.findOne({ _id:thisMessage.projectId });
-        await Project.findByIdAndUpdate(thisMessage.projectId,
+        const message = await Message.findById(thisMessage._id);
+        // console.log("@@@@@@@@@");
+        // console.log(message.projectId);
+        const pro = await Project.findById(message.projectId);
+        await Project.findByIdAndUpdate(message.projectId,
             {
                 $push: { "member": id }
             },
             {
                 safe: true, upsert: true, new: true
             });
+         /*     
         pro.update(
             { $push: {member: id}}
         );
+        */
         pro.save();
 
         await Message.findByIdAndRemove(thisMessage._id);

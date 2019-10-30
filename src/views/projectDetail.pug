@@ -1,30 +1,39 @@
 extends layouts/main.pug
 include mixins/projectGoalBlock
 include mixins/myGoalBlock
+include mixins/memberBlock
 
 block content 
-    span.project__goal 프로젝트 업무 
-        button
-            a(href=routes.editGoal(pro.id)) 업무 수정
-        if pro.onMarket === false
+    .projectDetail
+        span.project__goal 조원
+            each item in pro.member
+                +memberBlock({
+                    name: item.name
+                }) 
+        span.project__goal 프로젝트 업무 
             button
-                a(href=routes.addMarket(pro.id)) 공고 등록
-    .projectDetail__list 전체 업무
-        each item in pro.goal
-            +projectGoalBlock({
-                description: item.description,
-                isCharged: item.isCharged,
-                charge: item.charge,
-                chargername: item.chargername,
-                createdAt: item.createdAt,
-                dueDate: item.dueDate
-            })
-    .projectDetail__list  내 업무
-        each item in user.goal
-            +myGoalBlock({
-                description: item.description,
-                createdAt: item.createdAt,
-                dueDate: item.dueDate
-            })
-    .project__timeline 
-        | 타임라인
+                a(href=routes.editGoal(pro.id)) 업무 수정
+            if pro.onMarket === false
+                button
+                    a(href=routes.addMarket(pro.id)) 공고 등록
+        .projectDetail__list 전체 업무
+            each item in pro.goal
+                +projectGoalBlock({
+                    description: item.description,
+                    isCharged: item.isCharged,
+                    charge: item.charge,
+                    chargername: item.chargername,
+                    createdAt: item.createdAt,
+                    dueDate: item.dueDate
+                })
+        .projectDetail__list  내 업무
+            each item in user.goal
+                +myGoalBlock({
+                    description: item.description,
+                    createdAt: item.createdAt,
+                    dueDate: item.dueDate
+                })
+        .project__timeline 
+            script(src="frappe-gantt.min.js")
+
+            

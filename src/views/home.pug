@@ -3,7 +3,9 @@ extends layouts/main.pug
 block content
     .home__main
         .home__container
-            span 대학생활 로드맵 
+            span ROAD MAP
+            if(loggedUser)
+                span.home__hello=`${loggedUser.name}님 환영합니다` 
             .home__createProject
                 if(loggedUser)
                     button
