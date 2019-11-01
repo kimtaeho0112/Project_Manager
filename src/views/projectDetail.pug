@@ -4,6 +4,7 @@ include mixins/myGoalBlock
 include mixins/memberBlock
 
 block content 
+    .Gantt#Gantt
     .projectDetail
         span.project__goal 조원
             each item in pro.member
@@ -13,6 +14,7 @@ block content
         span.project__goal 프로젝트 업무 
             button
                 a(href=routes.editGoal(pro.id)) 업무 수정
+            button(type="button" onclick="Gantt(" + JSON.stringify(pro.goal) + ");" style="margin-left:8px;") Gantt Chart 보기
             if pro.onMarket === false
                 button
                     a(href=routes.addMarket(pro.id)) 공고 등록
@@ -33,7 +35,7 @@ block content
                     createdAt: item.createdAt,
                     dueDate: item.dueDate
                 })
-        .project__timeline 
-            script(src="frappe-gantt.min.js")
-
+        .project__timeline
+        
+            
             
