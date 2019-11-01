@@ -70,6 +70,8 @@ function option(){
     gantt.config.details_on_dblclick = false;
     gantt.config.drag_resize = false;
     gantt.config.drag_move = false;
+
+    gantt.attachEvent("onTaskClick", function(id, e) {});
 }
 
 function getFormatDate(date){ 
