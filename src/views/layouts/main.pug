@@ -3,9 +3,13 @@ html
     head
         title #{pageTitle}
         link(rel="stylesheet", href="/static/styles.css")
+        link(rel="stylesheet", href="/static/codebase/dhtmlxgantt.css?v=6.2.7")
     body
         include ../partials/header2
     main
         block content
     script(src="/static/main.js")
+    script(src="/static/codebase/dhtmlxgantt.js?v6.2.7")
+    script(src="/static/codebase/locale/locale_kr.js?v6.2.7")
+    script(src="/static/gantt.js")
 

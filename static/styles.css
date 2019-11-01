@@ -33,7 +33,9 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Jeju Gothic', sans-serif;
-  font-weight: bold; }
+  font-weight: bold;
+  overflow-x: hidden;
+}
 
 main {
   margin: 0 auto;
@@ -388,7 +390,9 @@ button {
           border-radius: 5px; }
 
 .projectDetail {
-  margin-left: 150px; }
+  margin-left: 150px; 
+  overflow: hidden;
+}
 
 .project__goal {
   font-size: 25px; }
@@ -538,3 +542,11 @@ li {
   font-size: 25px;
   margin-left: 15px;
   margin-top: 30px; }
+
+  .Gantt{
+    position: absolute;
+    top: 200px;
+    left: 630px;
+    width: 1200px;
+    height: 600px;
+  }
