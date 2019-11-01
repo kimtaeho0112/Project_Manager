@@ -545,7 +545,11 @@ li {
 
   .Gantt{
     position: absolute;
+<<<<<<< HEAD
     top: 200px;
+=======
+    top: 100px;
+>>>>>>> 6f92b3682b82af446ba5203e8819808845fefe96
     left: 630px;
     width: 1200px;
     height: 600px;

@@ -1,5 +1,6 @@
 function Gantt(param){
 
+<<<<<<< HEAD
     var tasks = goalToTasks(param);
 
     // var tasks = {
@@ -30,6 +31,41 @@ function Gantt(param){
 }
 
 function goalToTasks(goal){
+=======
+    var tasks = progoalToTasks(param);
+
+    //////////////////////////////////// 데이터 포맷 /////////////////////////////////////////////////////
+    // var format = {
+    //     data: [
+    //         {
+    //             id: 1,                               //Task(할일)의 ID
+    //             text: "Project #2",                  //Task의 Description
+    //             start_date: "01-04-2018",            //Task의 시작일
+    //             duration: 18,                        //Task의 기간 ( 종료일 - 시작일 )
+    //             order: 10,                           //Task의 Level (Default : 10)
+    //             progress: 0.4,                       //Task의 진행률 (Default : 1)
+    //             open: true                           //Task의 디렉토리 오픈 기본값 ( Default : true )
+    //         }
+    //     ]
+    // };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    option();
+    gantt.init("Gantt");
+    gantt.parse(tasks);
+    taskContentSwap(param);
+}
+
+function taskContentSwap(param){
+    var length = param.length;
+
+    for(let j = 0; j < length; j++){
+        document.getElementsByClassName('gantt_task_content').valueOf()[j].innerText = param[j].chargername;
+    }
+}
+
+function progoalToTasks(goal){
+>>>>>>> 6f92b3682b82af446ba5203e8819808845fefe96
     var goal_length = goal.length;
     
     var obj = new Array();
@@ -60,6 +96,20 @@ function goalToTasks(goal){
     return tasks;
 }
 
+<<<<<<< HEAD
+=======
+function option(){
+    gantt.config.details_on_create = false;
+    gantt.config.drag_links = false;
+    gantt.config.drag_progress = false;
+    gantt.config.details_on_dblclick = false;
+    gantt.config.drag_resize = false;
+    gantt.config.drag_move = false;
+
+    gantt.attachEvent("onTaskClick", function(id, e) {});
+}
+
+>>>>>>> 6f92b3682b82af446ba5203e8819808845fefe96
 function getFormatDate(date){ 
     var year = date.getFullYear(); //yyyy 
     var month = (1 + date.getMonth()); //M
