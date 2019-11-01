@@ -1,37 +1,5 @@
 function Gantt(param){
 
-<<<<<<< HEAD
-    var tasks = goalToTasks(param);
-
-    // var tasks = {
-    //     data: [
-    //         {
-    //             id: 1, text: "Project #2", start_date: "01-04-2018", duration: 18, order: 10,
-    //             progress: 0.4, open: true
-    //         },
-    //         {
-    //             id: 2, text: "Task #1", start_date: "02-04-2018", duration: 8, order: 10,
-    //             progress: 0.6, parent: 1
-    //         },
-    //         {
-    //             id: 3, text: "Task #2", start_date: "11-04-2018", duration: 8, order: 20,
-    //             progress: 0.6, parent: 1
-    //         }
-    //     ]
-    // };
-
-    gantt.config.details_on_create = false;
-    gantt.config.drag_links = false;
-    gantt.config.drag_progress = false;
-    gantt.config.details_on_dblclick = false;
-    gantt.config.drag_resize = false;
-
-    gantt.init("Gantt");
-    gantt.parse(tasks);
-}
-
-function goalToTasks(goal){
-=======
     var tasks = progoalToTasks(param);
 
     //////////////////////////////////// 데이터 포맷 /////////////////////////////////////////////////////
@@ -65,7 +33,6 @@ function taskContentSwap(param){
 }
 
 function progoalToTasks(goal){
->>>>>>> 6f92b3682b82af446ba5203e8819808845fefe96
     var goal_length = goal.length;
     
     var obj = new Array();
@@ -96,8 +63,6 @@ function progoalToTasks(goal){
     return tasks;
 }
 
-<<<<<<< HEAD
-=======
 function option(){
     gantt.config.details_on_create = false;
     gantt.config.drag_links = false;
@@ -109,7 +74,6 @@ function option(){
     gantt.attachEvent("onTaskClick", function(id, e) {});
 }
 
->>>>>>> 6f92b3682b82af446ba5203e8819808845fefe96
 function getFormatDate(date){ 
     var year = date.getFullYear(); //yyyy 
     var month = (1 + date.getMonth()); //M
