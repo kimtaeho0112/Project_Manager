@@ -17,8 +17,8 @@ export const projectDetail = async (req, res) => {
       // console.log(pro.goal);
       const reqid = req.user._id;
       const user = await User.findById(reqid).populate("goal");
-      console.log("##################");
-      console.log(pro.member);
+      // console.log("##################");
+      // console.log(pro.member);
       res.render("projectDetail", { pageTitle: "Project Deatil", pro, user });
 }
 
