@@ -399,6 +399,13 @@ button {
 .project__timeline {
   font-size: 25px; }
 
+.Gantt {
+  position: absolute;
+  top: 100px;
+  left: 630px;
+  width: 1200px;
+  height: 600px; }
+
 .projectDetail__list {
   margin-bottom: 25px; }
 
