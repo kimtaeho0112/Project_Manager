@@ -1,4 +1,4 @@
-.userDetail {
+.userDetail { 
     display: grid;
     grid-template-rows: repeat(3, 0.7fr);
     justify-content: center;
@@ -6,12 +6,10 @@
 } 
 
 .userDetail__listtitle{
-
     font-size: 50px;
     margin-top: 50px;
-      
 } 
 .userDetail__displayProject{
-    display: flex; 
-    flex-direction: row;
+    display: grid; 
+    grid-gap: 1px;
 }

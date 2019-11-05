@@ -114,8 +114,10 @@ export const postCreateProject = async (req, res) => {
             description: desc,
             createdAt: start,
             dueDate: due,
-            requiredPeople : reqPeople
+            requiredPeople : reqPeople 
         });
+        newProject.member.push(newProject.owner);
+        newProject.save();
 /*
         const newGoal = await Goal.create({
             description: goal

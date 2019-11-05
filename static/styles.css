@@ -1,5 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);.home__main {
-  margin: 0 auto; }
+  margin-top: 250px; }
 
 .home__hello {
   font-size: 35px; }
@@ -38,7 +38,7 @@ html, body {
 main {
   margin: 0 auto;
   background-color: #E7FEFF;
-  min-height: 70vh;
+  /* min-height: 70vh; */
   font-family: 'Jeju Gothic', sans-serif; }
 
 /*
@@ -76,10 +76,10 @@ input[type="submit"] {
   cursor: pointer; }
 
 button {
-  -webkit-box-shadow: inset 0 0 0 4px #58afd1;
-     -moz-box-shadow: inset 0 0 0 4px #58afd1;
-          box-shadow: inset 0 0 0 4px #58afd1;
-  color: #58afd1;
+  -webkit-box-shadow: inset 0 0 0 4px #212324;
+     -moz-box-shadow: inset 0 0 0 4px #212324;
+          box-shadow: inset 0 0 0 4px #212324;
+  color: #212324;
   -webkit-transition: color 0.25s 0.08333s;
   -o-transition: color 0.25s 0.08333s;
   -moz-transition: color 0.25s 0.08333s;
@@ -90,7 +90,7 @@ button {
   cursor: pointer;
   line-height: 1.5;
   font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
+  padding: 1em 1em;
   letter-spacing: 0.05rem;
   font-family: 'Jeju Gothic', sans-serif; }
   button::before, button::after {
@@ -151,18 +151,8 @@ button {
   margin-top: 50px; }
 
 .userDetail__displayProject {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-     -moz-box-orient: horizontal;
-     -moz-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row; }
+  display: grid;
+  grid-gap: 1px; }
 
 .header__anchor {
   text-decoration: none;
@@ -375,7 +365,7 @@ button {
   font-size: 20px;
   font-weight: 300;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   width: 200px;
   height: 80px;
   margin-top: 10px;
@@ -386,6 +376,9 @@ button {
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px; }
+
+.projectBlock .projectBlock__title:hover {
+  opacity: 0.7; }
 
 .projectDetail {
   margin-left: 150px; }
@@ -401,7 +394,7 @@ button {
 
 .Gantt {
   position: absolute;
-  top: 100px;
+  top: 210px;
   left: 630px;
   width: 1200px;
   height: 600px; }
@@ -430,14 +423,14 @@ button {
     position: relative;
     display: inline-block;
     vertical-align: center;
-    height: 230px;
-    width: 400px;
+    height: 100px;
+    width: 150px;
     margin: 10px;
-    background-color: #A8E0FF;
+    background-color: #3498db;
     list-style: none;
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px; }
+    -webkit-border-radius: 15px;
+       -moz-border-radius: 15px;
+            border-radius: 15px; }
     .projectGoalBlock .projectGoalBlock__container .projectGoalBlock__title {
       font-size: 18px;
       padding-bottom: 5px; }
@@ -454,7 +447,6 @@ li {
 .myGoalBlock {
   margin-bottom: 20px; }
   .myGoalBlock .myGoalBlock__container {
-    z-index: -1;
     content: "";
     left: 10px;
     background: #777;
@@ -473,8 +465,8 @@ li {
     position: relative;
     display: inline-block;
     vertical-align: center;
-    height: 220px;
-    width: 400px;
+    height: 80px;
+    width: 150px;
     margin: 10px;
     background-color: #8EE3F5;
     list-style: none;
@@ -545,3 +537,10 @@ li {
   font-size: 25px;
   margin-left: 15px;
   margin-top: 30px; }
+
+.project__currentGoal {
+  margin-left: 100px;
+  font-size: 37px; }
+
+.project__currentGoalDetail {
+  margin-right: 20px; }

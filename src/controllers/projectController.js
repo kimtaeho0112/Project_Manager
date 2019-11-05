@@ -17,6 +17,7 @@ export const projectDetail = async (req, res) => {
       // console.log(pro.goal);
       const reqid = req.user._id;
       const user = await User.findById(reqid).populate("goal");
+      console.log(`month: ${pro.dueDate.getMonth() + 1}, year: ${pro.dueDate.getYear() - 100}, date: ${pro.dueDate.getDate()}`);
       // console.log("##################");
       // console.log(pro.member);
       res.render("projectDetail", { pageTitle: "Project Deatil", pro, user });

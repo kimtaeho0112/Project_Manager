@@ -5,12 +5,13 @@ include mixins/memberBlock
  
 block content 
     .Gantt#Gantt
-    .projectDetail
-        span.project__goal 조원
+    .projectDetail 
+        span.project__goal 조원<br />
             each item in pro.member
                 +memberBlock({
                     name: item.name
                 }) 
+                
         span.project__goal 프로젝트 업무 
             button
                 a(href=routes.editGoal(pro.id)) 업무 수정

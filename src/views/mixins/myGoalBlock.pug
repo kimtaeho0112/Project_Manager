@@ -1,12 +1,6 @@
-mixin myGoalBlock(myGoal = {})
+mixin myGoalBlock(myGoal = {}) 
     .myGoalBlock
         ul.myGoalBlock__container 
             li
                 span.myGoalBlock__title 목표내용 <br/>
                     span.myGoalBlock__text=myGoal.description
-            li
-                span.myGoalBlock__title 시작일 <br/>
-                    span.myGoalBlock__text=myGoal.createdAt
-            li
-                span.myGoalBlock__title 마감일 <br/>
-                    span.myGoalBlock__text=myGoal.dueDate

@@ -1,15 +1,18 @@
 .projectBlock { 
-  
+
     .projectBlock__title {
       font-size: 20px;
       font-weight: 300;
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 0px;
       width: 200px;
       height:80px;
       margin-top: 10px;
       border: 0.1rem outset black;
       box-shadow: 10px 10px 5px #aaaaaa;
       border-radius: 5px;
+    }
+    .projectBlock__title:hover{
+      opacity: 0.7; 
     }
   }

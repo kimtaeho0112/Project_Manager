@@ -1,15 +1,16 @@
 extends layouts/main.pug
 include mixins/editGoalBlock
-
+ 
 block content
-    span.project__goal CURRENT GOAL
-        a(href=routes.addGoal(pro.id))
-            button 업무 생성
-        each item in pro.goal
-            +editGoalBlock({
-                id: item.id,
-                description: item.description,
-                isCharged: item.isCharged,
-                charge: item.charge,
-                chargername: item.chargername
-            })  
+    .project__currentGoal
+        span.project__currentGoalDetail CURRENT GOAL  
+            a(href=routes.addGoal(pro.id))
+                button 업무 생성
+            each item in pro.goal
+                +editGoalBlock({
+                    id: item.id,
+                    description: item.description,
+                    isCharged: item.isCharged,
+                    charge: item.charge,
+                    chargername: item.chargername
+                })  

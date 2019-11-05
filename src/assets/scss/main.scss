@@ -11,7 +11,7 @@ html, body {
 main {
   margin: 0 auto;
   background-color:#E7FEFF;
-  min-height: 70vh;
+  /* min-height: 70vh; */
   font-family: 'Jeju Gothic', sans-serif;
 }
 /*
@@ -102,7 +102,7 @@ button{
     }
   }
   
-    @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
+    @include btn-border-drawing(#212324, #ffe593, 4px, bottom, right);
   
   
   //=== Button styling, semi-ignore
@@ -112,10 +112,9 @@ button{
     cursor: pointer;
     line-height: 1.5;
     font: 700 1.2rem 'Roboto Slab', sans-serif;
-    padding: 1em 2em;
+    padding: 1em 1em;
     letter-spacing: 0.05rem;
     font-family: 'Jeju Gothic', sans-serif;
     
     &:focus { outline: 2px dotted #55d7dc; }
-  
 }
