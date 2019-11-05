@@ -52,7 +52,7 @@ main {
   //=== Drawing effect
 button{
   
-  @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 1px, $vertical: top, $horizontal: left, $duration: 0.2s) {
     box-shadow: inset 0 0 0 $width $color;
     color: $color;
     transition: color $duration $duration/3;
@@ -110,9 +110,9 @@ button{
     background: none;
     border: none;
     cursor: pointer;
-    line-height: 1.5;
-    font: 700 1.2rem 'Roboto Slab', sans-serif;
-    padding: 1em 1em;
+    line-height: 1.2;
+    font: 700 1rem 'Roboto Slab', sans-serif;
+    padding: 0.7em 0.7em;
     letter-spacing: 0.05rem;
     font-family: 'Jeju Gothic', sans-serif;
     

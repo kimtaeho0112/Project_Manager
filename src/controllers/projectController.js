@@ -135,8 +135,7 @@ export const postAddGoal = async (req, res) => {
                 safe: true, upsert: true, new: true
             });
         pro.save();
-        
-            res.redirect(routes.projectDetail(id));
+        res.redirect(routes.projectDetail(id));
     } catch(error){
         console.log("error");
     }

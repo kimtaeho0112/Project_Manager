@@ -1,11 +1,11 @@
-mixin editGoalBlock(editGoal = {})
-    .projectGoalBlock
-        h4 목표내용
-        h6.projectGoalBlock__title=editGoal.description
+mixin editGoalBlock(editGoal = {}) 
+    .projectCurrentGoalBlock
+        h4.projectCurrentGoalBlock__title 목표내용
+        h6.projectCurrentGoalBlock__title=editGoal.description
         if !editGoal.isCharged
-            h5.projectGoal__charge 담당 없음
+            h5.projectCurrentGoal__charge 담당 없음
             a(href=routes.addMyGoal(editGoal.id)) 
                 button 내 담당으로 지정
         else
-            h4 책임자
-            h6.projectGoalBlock__charge=editGoal.chargername[0]
+            h4.projectCurrentGoalBlock__title 책임자
+            h6.projectCurrentGoalBlock__title=editGoal.chargername[0]
