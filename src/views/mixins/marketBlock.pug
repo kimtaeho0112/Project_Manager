@@ -2,7 +2,7 @@ mixin marketBlock(market = {})
     .marcketBlock 
         a(href=routes.marketDetail(market.id)) 
             .marketBlock__title
-                h3 프로젝트 이름
-                    h4=market.title 
-                h3 필요인원
-                    h4=market.requiredPeople
+                h3 🔳 프로젝트 이름
+                    h4.marketBlock__text=market.title 
+                h3 🔳 필요인원
+                    h4.marketBlock__text=market.requiredPeople

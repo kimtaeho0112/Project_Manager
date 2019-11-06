@@ -5,7 +5,7 @@ include mixins/messageBlock
 block content   
     .userDetail
         if user.id === loggedUser.id
-            .userDetail__listtitle 받은 요청 내역 
+            .userDetail__listtitle 📪 받은 요청 내역 
                 .userDetail__displayProject
                     each item in userMessages
                         if item != null
@@ -16,8 +16,8 @@ block content
                                 requestedId: item.requestedId
                             })
 
-            .userDetail__listtitle 진행중인 프로젝트 
-                .userDetail__displayProject
+            .userDetail__listtitle ▶️ 진행중인 프로젝트 
+                .userDetail__displayProject 
                     each item in userMessages.user.currentProject
                         +projectBlock({
                             id: item.id,
@@ -25,7 +25,7 @@ block content
                             createdAt: item.createdAt
                         })
 
-            .userDetail__listtitle 포트폴리오
+            .userDetail__listtitle 📝 포트폴리오
                 .userDetail__displayProject
                     each item in userMessages.user.finishedProject
                         +projectBlock({

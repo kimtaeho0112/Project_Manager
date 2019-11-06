@@ -6,13 +6,14 @@ include mixins/memberBlock
 block content 
     .Gantt#Gantt
     .projectDetail 
-        span.project__goal 조원<br />
+        span.project__goal 🔳 조  원<br />
             each item in pro.member
                 +memberBlock({
-                    name: item.name
+                    name: item.name,
+                    major: item.major
                 }) 
                 
-        span.project__goal 프로젝트 업무 
+        span.project__goal 🔳 프로젝트 업무 
             button
                 a(href=routes.editGoal(pro.id)) 업무 수정
             button(type="button" onclick="Gantt(" + JSON.stringify(pro.goal) + ");" style="margin-left:8px;") Gantt Chart 보기
@@ -20,7 +21,7 @@ block content
                 button
                     a(href=routes.addMarket(pro.id)) 공고 등록
             button(type="button" onclick="window.open('http://localhost:8000/webpack-dev-server/');" style="margin-left:8px;") 실시간 채팅
-        .projectDetail__list 전체 업무
+        .projectDetail__list ✔️ 전체 업무
             each item in pro.goal
                 +projectGoalBlock({
                     description: item.description,
@@ -30,7 +31,7 @@ block content
                     createdAt: item.createdAt,
                     dueDate: item.dueDate
                 })
-        .projectDetail__list  내 업무
+        .projectDetail__list  ✔️ 내 업무
             each item in user.goal
                 +myGoalBlock({
                     description: item.description,

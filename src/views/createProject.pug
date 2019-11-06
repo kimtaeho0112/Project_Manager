@@ -6,13 +6,13 @@ block content
         form(action=routes.project, method="post")
             .project__upload
             span 프로젝트 이름
-                input(type="text", name="title", placeholder="Project Name", required=true)
+                input(type="text", name="title", placeholder="프로젝트 이름", required=true)
             span 시작일
-                input(type="date", name="start", placeholder="Start Date")
+                input(type="date", name="start", placeholder="시작일")
             span 마감일
-                input(type="date", name="due", placeholder="Due Date")
-            span 프로젝트 카테고리
-                input(type="text", name="desc", placeholder="Short Explanation")
+                input(type="date", name="due", placeholder="마감일")
+            span 프로젝트 설명
+                input(type="text", name="desc", placeholder="분야, 주최 회사 등등")
             SPAN 필요 인원
-                input(type="number", name="requiredPeople", placeholder="Required People")
+                input(type="number", name="requiredPeople", placeholder="예상 필요 인원")
             input(type="submit", value="프로젝트 생성하기")

@@ -147,7 +147,7 @@ button {
           align-content: center; }
 
 .userDetail__listtitle {
-  font-size: 50px;
+  font-size: 40px;
   margin-top: 50px; }
 
 .userDetail__displayProject {
@@ -361,24 +361,35 @@ button {
     font-weight: 300;
     margin-right: 10px; }
 
-.projectBlock .projectBlock__title {
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 0px;
-  width: 200px;
-  height: 80px;
-  margin-top: 10px;
-  border: 0.1rem outset black;
-  -webkit-box-shadow: 10px 10px 5px #aaaaaa;
-     -moz-box-shadow: 10px 10px 5px #aaaaaa;
-          box-shadow: 10px 10px 5px #aaaaaa;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px; }
-
-.projectBlock .projectBlock__title:hover {
-  opacity: 0.7; }
+.projectBlock {
+  text-decoration: none; }
+  .projectBlock a:link {
+    text-decoration: none;
+    color: black; }
+  .projectBlock a:visited {
+    color: black;
+    text-decoration: none; }
+  .projectBlock .projectBlock__title {
+    text-decoration: none;
+    background-color: white;
+    font-size: 16px;
+    margin-left: 45px;
+    text-align: center;
+    vertical-align: center;
+    margin-bottom: 0px;
+    padding-top: 0;
+    width: 128px;
+    height: 50px;
+    margin-top: 10px;
+    border: 0.1rem outset black;
+    -webkit-box-shadow: 10px 10px 5px #aaaaaa;
+       -moz-box-shadow: 10px 10px 5px #aaaaaa;
+            box-shadow: 10px 10px 5px #aaaaaa;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px; }
+  .projectBlock .projectBlock__title:hover {
+    opacity: 0.7; }
 
 .projectDetail {
   margin-left: 150px; }
@@ -486,14 +497,20 @@ li {
 .marcketBlock {
   margin-left: 170px;
   margin-top: 100px; }
+  .marcketBlock a:link {
+    text-decoration: none;
+    color: black; }
+  .marcketBlock a:visited {
+    color: black; }
   .marcketBlock .marketBlock__title {
+    color: #2980b9;
     font-size: 15px;
     font-weight: 300;
     padding-left: 15px;
     text-align: left;
     margin-bottom: 20px;
-    width: 300px;
-    height: 200px;
+    width: 250px;
+    height: 170px;
     margin-top: 10px;
     border: 0.1rem outset black;
     -webkit-box-shadow: 10px 10px 5px #aaaaaa;
@@ -502,6 +519,10 @@ li {
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px; }
+
+.marketBlock__text {
+  color: black;
+  margin-left: 20px; }
 
 .messageBlock {
   font-size: 25px;
@@ -523,20 +544,25 @@ li {
 .marketDetail {
   margin-left: 150px;
   margin-top: 100px; }
-
-.marketDetail__container {
-  list-style: none; }
+  .marketDetail .marketDetail__container {
+    list-style: none; }
+  .marketDetail .marketDetail__title {
+    font-size: 25px;
+    color: #2980b9; }
+  .marketDetail .marketDetail__text {
+    font-size: 21px;
+    margin-left: 15px;
+    margin-top: 50px;
+    color: black; }
 
 .marketDetail__myrole {
-  margin-left: 150px; }
-
-.marketDetail__title {
-  font-size: 35px; }
-
-.marketDetail__text {
-  font-size: 25px;
-  margin-left: 15px;
-  margin-top: 30px; }
+  margin-left: 180px; }
+  .marketDetail__myrole a:link {
+    color: black;
+    text-decoration: none; }
+  .marketDetail__myrole a:visited {
+    text-decoration: none;
+    color: black; }
 
 .project__currentGoal {
   margin-left: 100px;

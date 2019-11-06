@@ -1,20 +1,20 @@
 extends layouts/main.pug
-
-block content
+ 
+block content 
     .marketDetail 
         ul.marketDetail__container 
             li
-                span.marketDetail__title 프로젝트 제목 <br />
+                span.marketDetail__title ◼️ 프로젝트 제목 <br />
                     span.marketDetail__text=pro.title 
             li
-                span.marketDetail__title 프로젝트 목표 <br />
+                span.marketDetail__title ️️️️️◼️ 프로젝트 목표 <br />
                     span.marketDetail__text=pro.description 
             li
-                span.marketDetail__title 공고 마감 남은시간 <br />
+                span.marketDetail__title ️◼️ 공고 마감 남은시간 <br />
                     span.marketDetail__text=leftDate 
             li
-                span.marketDetail__title 책임자 <br />
-                    span.marketDetail__text=ownerName.name 
+                span.marketDetail__title ️◼️ 책임자 <br />
+                    span.marketDetail__text=`${ownerName.name}(${ownerName.major})` 
 
     .marketDetail__myrole
         button

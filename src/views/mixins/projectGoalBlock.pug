@@ -2,10 +2,10 @@ mixin projectGoalBlock(projectGoal = {})
     .projectGoalBlock
         ul.projectGoalBlock__container 
             li
-                span.projectGoalBlock__title 목표내용 <br/>
+                span.projectGoalBlock__title ▪️ 목표내용 <br/>
                     span.projectGoalBlock__text=projectGoal.description
             li
-                span.projectGoalBlock__title 책임자 <br/>
+                span.projectGoalBlock__title ▪️ 책임자 <br/>
                     if !projectGoal.isCharged
                         span.projectGoalBlock__text 담당 없음 <br/>
                     else
